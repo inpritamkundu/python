@@ -37,11 +37,15 @@ def submitQuery():
         connection.commit()
         tk.messagebox.showinfo(
             "Teckat", "Your data inserted successfully. Enter new data.")
-        connection.close()
+
+        # Takes (starting position, ending position)
+        entryName.delete(0, tk.END)
+        entryAddress.delete(0, tk.END)
+        entryAge.delete(0, tk.END)
+        entryName.focus()
     else:
         tk.messagebox.showinfo(
             "Teckat", "Enter valid data.")
-
 
     # ======================================================   GUI   =============================================================
     # Adding frame
@@ -54,8 +58,7 @@ addDataLabel = tk.Label(frame, text="Add Data",
 addDataLabel.grid(row=0, column=1)
 
 # Adding data label
-# other way of writing font size
-entryNameLabel = tk.Label(frame, text="Name : ", font='20')
+entryNameLabel = tk.Label(frame, text="Name : ", font=fontsizeData)
 entryNameLabel.grid(row=1, column=0, pady=2)
 
 entryAddressLabel = tk.Label(frame, text="Address : ", font=fontsizeData)
@@ -68,6 +71,7 @@ entryAgeLabel.grid(row=3, column=0, pady=2)
 # Adding entry form for data label
 entryName = tk.Entry(frame, width=50, font=fontsizeData)
 entryName.grid(row=1, column=1, pady=10, ipady=7)
+entryName.focus()
 
 entryAddress = tk.Entry(frame, width=50, font=fontsizeData)
 entryAddress.grid(row=2, column=1, pady=10, ipady=7)
