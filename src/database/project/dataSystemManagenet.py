@@ -5,6 +5,10 @@ import tkinter.messagebox
 from tkinter import ttk
 
 
+s = 0   # for counting number of times search button is placed
+frameData = 0  # for creating global frame
+
+
 root = tk.Tk()
 root.geometry('1000x700')
 root.title("Teckat")
@@ -91,21 +95,40 @@ def DeleteQuery():
     # ================================= search data ======================================================
 
 
+# Will search when submit entry is clicked
+
 def searchQuery():
     searchId = entrySearchId.get()
     name = entrySearchName.get()
     address = entrySearchAddress.get()
     age = entrySearchAge.get()
-
+    global s
+    s += 1
     if ((searchId and name == '' and address == '' and age == '') or (searchId == '' and name and address == '' and age == '') or (searchId == '' and name == '' and address and age == '') or (searchId == '' and name == '' and address == '' and age)):
         if(searchId):
+          # If search id present
+
             cursor = connection.cursor()
             query = "SELECT id ,name, address, age FROM student where id ="+searchId+";"
             print(query)
             cursor.execute(query)
-            row = cursor.fetchone()  # fetches one at a time
+            row = cursor.fetchall()  # fetches all at a time use fetchone for fetching one at a time
             print(row)
-            connection.commit()
+
+            # if row contains value
+            if (row):
+                global frameData
+                if s == 1:
+                    createFrame()
+                    printDataOnWindow(row)
+                else:
+                    destroyFrame()
+                    createFrame()
+                    printDataOnWindow(row)
+            else:
+                tk.messagebox.showinfo(
+                    "Teckat", "No data found.")
+
         elif(name):
             cursor = connection.cursor()
             query = "SELECT id ,name, address, age FROM student where name = '"+name+"';"
@@ -113,15 +136,39 @@ def searchQuery():
             cursor.execute(query)
             row = cursor.fetchall()     # fetches all at a time
             print(row)
-            connection.commit()
+
+            if (row):
+                global frameData
+                if s == 1:
+                    createFrame()
+                    printDataOnWindow(row)
+                else:
+                    destroyFrame()
+                    createFrame()
+                    printDataOnWindow(row)
+            else:
+                tk.messagebox.showinfo(
+                    "Teckat", "No data found.")
+
         elif(address):
             cursor = connection.cursor()
             query = "SELECT id ,name, address, age FROM student where address = '"+address+"';"
             # print(query)
             cursor.execute(query)
             row = cursor.fetchall()      # fetches all at a time
-            print(row)
-            connection.commit()
+
+            if (row):
+                if s == 1:
+                    createFrame()
+                    printDataOnWindow(row)
+                else:
+                    destroyFrame()
+                    createFrame()
+                    printDataOnWindow(row)
+            else:
+                tk.messagebox.showinfo(
+                    "Teckat", "No data found.")
+
         elif(age):
             cursor = connection.cursor()
             query = "SELECT id ,name, address, age FROM student where age = '"+age+"';"
@@ -129,7 +176,18 @@ def searchQuery():
             cursor.execute(query)
             row = cursor.fetchall()      # fetches all at a time
             print(row)
-            connection.commit()
+
+            if (row):
+                if s == 1:
+                    createFrame()
+                    printDataOnWindow(row)
+                else:
+                    destroyFrame()
+                    createFrame()
+                    printDataOnWindow(row)
+            else:
+                tk.messagebox.showinfo(
+                    "Teckat", "No data found.")
 
         # Takes (starting position, ending position)
         entrySearchId.delete(0, tk.END)
@@ -139,8 +197,64 @@ def searchQuery():
         entrySearchId.focus()
 
     else:
-        tk.messagebox.showinfo(
-            "Teckat", "Enter valid data.")
+        cursor = connection.cursor()
+        query = "SELECT id ,name, address, age FROM student;"
+        # print(query)
+        cursor.execute(query)
+        row = cursor.fetchall()      # fetches all at a time
+        print(row)
+        if (row):
+            createFrame()
+            printDataOnWindow(row)
+        else:
+            tk.messagebox.showinfo(
+                "Teckat", "No data found.")
+
+
+# To create log generating frame
+
+
+def createFrame():
+    global frameData
+    frameData = tk.Frame(frame)
+    frameData.place(relx=0.01, rely=.68, relwidth=0.8, relheight=0.8)
+
+# to destroy log generating frame
+
+
+def destroyFrame():
+    global frameData
+    frameData.after(0, frameData.destroy)
+
+
+# To print log on log generating frame
+
+def printDataOnWindow(row):
+    r = 14  # row
+    c = 0  # column
+    global frameData
+    # create a frame for entry of data
+
+    label = tk.Label(frameData, text="id", font=fontsizeData)
+    label.grid(row=r, column=c, padx=(50, 0))
+
+    label = tk.Label(frameData, text="Name", font=fontsizeData)
+    label.grid(row=r, column=c+1, padx=(50, 0))
+
+    label = tk.Label(frameData, text="Address", font=fontsizeData)
+    label.grid(row=r, column=c+2, padx=(50, 0))
+
+    label = tk.Label(frameData, text="Age", font=fontsizeData)
+    label.grid(row=r, column=c+3, padx=(50, 0))
+
+    for i in row:
+        # print(i)
+        r += 1
+        c = 0
+        for j in i:
+            label = tk.Label(frameData, text=j, font=fontsizeData)
+            label.grid(row=r, column=c, padx=(50, 0))
+            c += 1
 
     # ======================================================   GUI   =============================================================
 
@@ -239,10 +353,10 @@ entrySearchAge = tk.Entry(frame, width=50, font=fontsizeData)
 entrySearchAge.grid(row=12, column=1, pady=10, ipady=7)
 
 
-# Create button for entry
+# Create button for search
 entrySearchButton = tk.Button(frame, text="Search",
                               width=15, font=fontsizeData, command=searchQuery)
-entrySearchButton.grid(row=13, column=1, ipady=5, pady=5)
+entrySearchButton.grid(row=13, column=1, ipady=5, pady=(5, height))
 
 
 container.pack(fill=tk.BOTH)
