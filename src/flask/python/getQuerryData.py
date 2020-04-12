@@ -8,15 +8,10 @@ app = Flask(__name__)
 # Create url
 
 # If we type this url then hello function is going to execute
-@app.route('/value', methods=['POST'])
+@app.route('/value', methods=['GET'])
 def hello():
-    data = request.get_json()
-    email = data['email']
-    course_id = data['course_id']
-    return '''
-    email : {}
-    course id : {}
-    '''.format(email, course_id)
+    data = request.args.get('value')
+    return ''' value is {}'''.format(data)
 
 
 if __name__ == "__main__":
