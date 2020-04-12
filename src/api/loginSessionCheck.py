@@ -1,7 +1,7 @@
+from functions import auth
 from flask import Flask, request
-import jwt
-# Create app object
 
+# Create app object
 app = Flask(__name__)
 
 
@@ -9,11 +9,8 @@ app = Flask(__name__)
 def token():
     token = request.headers.get('Authorization')
     l = token.split()
-    authToken = l[1].encode('utf-8')
-    # print(authToken)
-    decoded_jwt = jwt.decode(authToken, 'organizationId', algorithms='HS256')
-    print(decoded_jwt)
-    return decoded_jwt
+    data = auth.authenticate(l[1])
+    return data
 
 
 if __name__ == "__main__":
