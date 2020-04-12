@@ -6,9 +6,20 @@
         "basheggsegss",
         "dbname",
         "eggsegss",
+        "jsonify",
+        "mongodb",
+        "myclient",
+        "mydatabase",
+        "mydb",
+        "mydict",
+        "mydoc",
+        "myquery",
         "obstudent",
         "obteddy",
-        "psycopg"
+        "psycopg",
+        "pymongo",
+        "roboto",
+        "teckatdb"
     ],
     "cSpell.ignoreWords": [
         "ipady",
@@ -16,6 +27,7 @@
         "onclick",
         "padx",
         "pady",
-        "relx"
+        "relx",
+        "vinay"
     ]
 }
