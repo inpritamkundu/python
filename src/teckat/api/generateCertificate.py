@@ -16,7 +16,7 @@ from flask import Flask, request
 myclient = pymongo.MongoClient(
     "mongodb://onsi:onsi_12345@ds017070.mlab.com:17070/teckat")
 mydb = myclient["teckat"]
-trainingCollection = mydb["training_enrollments"]
+trainingEnrollmentCollection = mydb["training_enrollments"]
 
 
 # Api call
@@ -45,14 +45,14 @@ def generateCerti():
         # Find status of enrollment
         # Check query for enrollment status
         enrollmentCheckQuery = {
-            "_id":  ObjectId(userId),
+            "user_id":  ObjectId(userId),
             "course_id": ObjectId(courseId)
         }
         # Find enrollment data for the check query
-        enrollmentData = trainingCollection.find(enrollmentCheckQuery)
+        enrollmentData = trainingEnrollmentCollection.find_one(
+            enrollmentCheckQuery)
+        print(enrollmentData)
 
-        for x in enrollmentData:
-            print(x)
         return "authorized"
         # Check if enrollment data exist
         # if(enrollmentData['status'] == 'ENROLLED'):

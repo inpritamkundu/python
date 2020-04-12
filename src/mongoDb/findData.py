@@ -20,7 +20,7 @@ ids = '5e91b536f8aa2f6e3f6198d8'
 name = 'puja'
 # find using query
 myquery = {"_id":  ObjectId(ids),
-           "name": name
+           'address': 'jamshedpur'
            }
 
 mydoc = mycol.find(myquery)
