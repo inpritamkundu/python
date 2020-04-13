@@ -2,9 +2,17 @@
 
 from PIL import Image, ImageDraw, ImageFont
 import os
+import string
 
 
-def generatecerti(certificateNum, userName, courseName, courseDate, filename):
+def generateCerti(certificateNum, userName, courseName, courseDate, filename):
+
+    # capitalizing the arguments
+    userName = string.capwords(userName)
+    courseName = string.capwords(courseName)
+
+    # adding cno to certificate number
+    certificateNum = 'C.No :- '+certificateNum
 
     path = os.path.join(os.getcwd(), 'src', 'teckat', 'api', 'functions')
 
@@ -79,8 +87,8 @@ def generatecerti(certificateNum, userName, courseName, courseDate, filename):
 
     image.save(r''+pdfPath)
 
-    return pdfPath
+    return "%s" % pdfPath
 
 
-# generatecerti("C.No. :- 123456dwhdkgs",
-#               "Puja Kumari Gupta", "Angular", "2/04/2020", "abc")
+# generateCerti("123456dwhdkgs", "Puja Kumari Gupta",
+#               "Angular", "2/04/2020", "abc")

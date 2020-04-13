@@ -25,7 +25,7 @@ myclient = pymongo.MongoClient(
     "mongodb://onsi:onsi_12345@ds017070.mlab.com:17070/teckat")
 mydb = myclient["teckat"]
 trainingEnrollmentCollection = mydb["training_enrollments"]
-trainingCourseCollection = mydb["traning_courses"]
+trainingCourseCollection = mydb["training_courses"]
 trainingCertificateCollection = mydb["training_certificate"]
 # Api call
 
@@ -55,9 +55,9 @@ def generateCerti():
     # Check status of authorization
     if(data['status']):
 
-        # userId = data['user']['_id']    # uncomment on production
+        userId = data['user']['_id']    # uncomment on production
 
-        userId = '5dd6c42cf570820d94ae8cca'   # comment on production
+        # userId = '5dd6c42cf570820d94ae8cca'   # comment on production
 
         # Find status of enrollment
         # Check query for enrollment status
@@ -96,19 +96,27 @@ def generateCerti():
                 if(timeGap >= 1300795200):
 
                     # inserting data to training certificate collection
-                    certificateData = trainingCertificateCollection.insert_one(
-                        {'generatedAt': currentTimeMillisec})
+                    # certificateData = trainingCertificateCollection.insert_one(
+                    #     {'generatedAt': currentTimeMillisec})
+                    # certificateId = str(certificateData.inserted_id)
+
+                    # Insert certificate id to enrollment collection
+                    # enrollmentData['certificate_id'] = userId
+                    enrollmentData.update({'certificate_id': userId})
 
                     # fetching data and sending for pdf generation
-                    certificateNum = enrollmentData['_id']
+                    certificateNum = str(enrollmentData['_id'])
+
                     userName = data['user']['firstName'] + \
                         " "+data['user']['lastName']
+
                     courseName = courseData['title']
 
                     # send date[0] for date
                     date = str(datetime.fromtimestamp(
                         currentTimeMillisec/1000.0)).split()
-                    fileName = str(certificateData.inserted_id)
+
+                    fileName = userId
 
                     pdfPath = pdf.generateCerti(certificateNum, userName,
                                                 courseName, date[0], fileName)
@@ -117,8 +125,25 @@ def generateCerti():
                     return "certificate out of date"
 
             else:
-                pdf.generateCerti()
-                return "generate previous certificate with date"
+                # Getting certificate data that is already present
+                # certificateId = str(enrollmentData['certificate_id'])
+                # certificateData = trainingCertificateCollection.find_one(
+                #     {'_id': ObjectId(certificateId)})
+
+                # # fetching data and sending for pdf generation
+                # certificateNum = enrollmentData['_id']
+                # userName = data['user']['firstName'] + \
+                #     " "+data['user']['lastName']
+                # courseName = courseData['title']
+
+                # # send date[0] for date
+                # date = str(datetime.fromtimestamp(
+                #     currentTimeMillisec/1000.0)).split()
+                # fileName = certificateId
+
+                # pdfPath = pdf.generateCerti(certificateNum, userName,
+                #                             courseName, date[0], fileName)
+                return "pdfPath"
 
         else:
             return "User has not enrolled yet"
