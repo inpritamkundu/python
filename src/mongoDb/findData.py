@@ -11,11 +11,13 @@ mycol = mydb["users"]
 # print(x)
 
 # find key exists or not
-# x = mycol.find_one({'id': {"$exists": True}})
-# if(x):
-#     print(x)
-# else:
-#     print("no key found")
+x = mycol.find_one(
+    {'name': {"$exists": True}, '_id': ObjectId("5e91a0c937cbea16469ee447")})
+if(x):
+    if 'name' in x.keys():
+        print(x.keys())
+else:
+    print("no key found")
 
 
 # Find all

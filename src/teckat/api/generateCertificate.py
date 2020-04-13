@@ -72,12 +72,12 @@ def generateCerti():
 
         # Check if enrollment data exist
         if(enrollmentData['status'] == 'ENROLLED'):
-            # pdf.generatecerti("C.No. :- 123456dwhdkgs",
-            #                   "Puja Kumari Gupta", "Angular", "2/04/2020")
 
             # Check certificate is previously generated or not
-            certificateGenerateStatus = str(
-                enrollmentData['isCertificateGenerated'])
+            if 'certificate_id' in enrollmentData.keys():
+                certificateGenerateStatus = True
+            else:
+                certificateGenerateStatus = False
 
             if(not certificateGenerateStatus):
 
@@ -95,6 +95,10 @@ def generateCerti():
 
                 if(timeGap >= 1300795200):
 
+                    # inserting data to training certificate collection
+                    certificateData = trainingCertificateCollection.insert_one(
+                        {'generatedAt': currentTimeMillisec})
+
                     # fetching data and sending for pdf generation
                     certificateNum = enrollmentData['_id']
                     userName = data['user']['firstName'] + \
@@ -104,16 +108,16 @@ def generateCerti():
                     # send date[0] for date
                     date = str(datetime.fromtimestamp(
                         currentTimeMillisec/1000.0)).split()
-                    fileName = userId
+                    fileName = str(certificateData.inserted_id)
 
                     pdfPath = pdf.generateCerti(certificateNum, userName,
                                                 courseName, date[0], fileName)
                     return pdfPath
                 else:
-                    pdf.generateCerti()
-                    return "generate new certificate with date"
+                    return "certificate out of date"
 
             else:
+                pdf.generateCerti()
                 return "generate previous certificate with date"
 
         else:
