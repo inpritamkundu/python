@@ -10,20 +10,27 @@ mycol = mydb["users"]
 # x = mycol.find_one()
 # print(x)
 
+# find key exists or not
+# x = mycol.find_one({'id': {"$exists": True}})
+# if(x):
+#     print(x)
+# else:
+#     print("no key found")
+
 
 # Find all
 
 # for x in mycol.find():
 #     print(x)
 
-ids = '5e91b536f8aa2f6e3f6198d8'
-name = 'puja'
-# find using query
-myquery = {"_id":  ObjectId(ids),
-           'address': 'jamshedpur'
-           }
+# ids = '5e91b536f8aa2f6e3f6198d8'
+# name = 'puja'
+# # find using query
+# myquery = {"_id":  ObjectId(ids),
+#            'address': 'jamshedpur'
+#            }
 
-mydoc = mycol.find(myquery)
+# mydoc = mycol.find(myquery)
 
-for x in mydoc:
-    print(x)
+# for x in mydoc:
+#     print(x)

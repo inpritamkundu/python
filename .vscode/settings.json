@@ -7,6 +7,7 @@
         "basheggsegss",
         "dbname",
         "eggsegss",
+        "generatecerti",
         "jsonify",
         "mongodb",
         "myclient",
@@ -26,11 +27,13 @@
         "certi",
         "generate",
         "ipady",
+        "millisec",
         "mithukundu",
         "onclick",
         "padx",
         "pady",
         "relx",
+        "strptime",
         "vinay"
     ]
 }
