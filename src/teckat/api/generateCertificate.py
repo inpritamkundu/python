@@ -96,9 +96,11 @@ def generateCerti():
 
                 if(timeGap >= 1300795200):
 
+                    generatedAt = datetime.fromtimestamp(
+                        currentTimeMillisec/1000.0)
                     # inserting data to training certificate collection
                     certificateData = trainingCertificateCollection.insert_one(
-                        {'generatedAt': currentTimeMillisec})
+                        {'generatedAt': generatedAt})
                     certificateId = str(certificateData.inserted_id)
 
                     # Insert certificate id to enrollment collection

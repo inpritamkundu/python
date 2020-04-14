@@ -20,4 +20,7 @@ print(millis-millisec)
 # convert millisecond to date time
 dattimes = str(datetime.fromtimestamp(millis/1000.0))
 l = dattimes.split()
-print(l[0])
+print(dattimes)
+
+
+# convert to date
