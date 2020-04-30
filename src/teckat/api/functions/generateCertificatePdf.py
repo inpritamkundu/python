@@ -96,7 +96,7 @@ def generateCerti(userName, courseName, courseDays, courseDate):
 
     # save the edited image
 
-    pdfPath = path+'\generatedCertificate\\'+userName+'.jpg'
+    pdfPath = path+'\generatedCertificate\\'+userName+'.pdf'
 
     image.save(r''+pdfPath)
 
