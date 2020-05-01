@@ -14,9 +14,9 @@
 # Using xlrd
 
 import xlrd
-
+path = r'C:\Users\Gautam\Downloads\session 1 Budding Entrepreneurs _ India is waiting for startups to innovate (Responses) (1).xlsx'
 # Give the location of the file
-loc = (r'C:\Users\Gautam\Downloads\session 1 Budding Entrepreneurs _ India is waiting for startups to innovate (Responses) (1).xlsx')
+loc = (path)
 
 # To open Workbook
 wb = xlrd.open_workbook(loc)

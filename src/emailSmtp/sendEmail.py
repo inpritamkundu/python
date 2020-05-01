@@ -3,10 +3,11 @@
 
 import smtplib
 from email.mime.multipart import MIMEMultipart
-from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 import os
+
+
 # for plain mesage
 # fromaddr = "noreply@teckat.com"
 # toaddr = "jiaarohi2512@gmail.com"
@@ -23,21 +24,45 @@ import os
 # server.quit()
 
 
-# attach pdf
+# attach image
+# path = os.path.join(os.getcwd(), 'src', 'emailSmtp', 'originalCertificate.jpg')
+# print(path)
+# print(os.path.basename(path))
+# fromaddr = "noreply@teckat.com"
+# toaddr = "jiaarohi2512@gmail.com"
+# msg = MIMEMultipart()
+# msg['From'] = fromaddr
+# msg['To'] = toaddr
+# msg['Subject'] = "Test Subject"
+# img_data = open(path, 'rb').read()
+# image = MIMEImage(img_data, name=os.path.basename(path))
+# msg.attach(image)
+# server = smtplib.SMTP_SSL('smtp.zoho.in:465')
+# server.login(fromaddr, "hic996nZYet5")
+
+# server.sendmail(fromaddr, toaddr, msg.as_string())
+# server.quit()
 
 
+# text + image
+path = os.path.join(os.getcwd(), 'src', 'emailSmtp', 'originalCertificate.jpg')
+print(path)
+print(os.path.basename(path))
 fromaddr = "noreply@teckat.com"
 toaddr = "jiaarohi2512@gmail.com"
 msg = MIMEMultipart()
 msg['From'] = fromaddr
 msg['To'] = toaddr
 msg['Subject'] = "Test Subject"
-with open(os.path.dirname(os.path.abspath(__file__))+'\\test.pdf') as f:
-    attach = MIMEApplication(f.read(), _subtype="pdf")
+body = ''' hello
+This is pritam
+    CEO Teckat'''
+msg.attach(MIMEText(body, 'plain'))
+img_data = open(path, 'rb').read()
+image = MIMEImage(img_data, name=os.path.basename(path))
+msg.attach(image)
 server = smtplib.SMTP_SSL('smtp.zoho.in:465')
 server.login(fromaddr, "hic996nZYet5")
-attach.add_header('Content-Disposition', 'attachment',
-                  filename=str(os.path.dirname(os.path.abspath(__file__)))+'\\test.pdf')
-msg.attach(attach)
-server.sendmail(fromaddr, toaddr, msg)
+
+server.sendmail(fromaddr, toaddr, msg.as_string())
 server.quit()
