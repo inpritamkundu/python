@@ -173,12 +173,27 @@ def sendEmail():
         fromaddr = "noreply@teckat.com"
         toaddr = email[i]
         msg = MIMEMultipart()
-        msg['From'] = fromaddr
+        msg['From'] = "TECKAT <noreply@teckat.com>"
         msg['To'] = toaddr
-        msg['Subject'] = "Test Subject"
-        body = ''' hello
-        This is pritam
-            CEO Teckat'''
+        msg['Subject'] = "certificate for teckat Webinar Session at Teckat Webinar Series."
+        body = ''' 
+Congratulations dear participant,
+
+You have been certified for attending the  Webinar at Teckat Webinar Series.
+
+Wish to see you at upcoming sessions.
+
+Your review is highly essential.
+Link:
+
+https://www.google.com/search?q=teckat&rlz=1C1CHZL_enIN833IN833&oq=tec&aqs=chrome.1.69i60j69i59j69i57j69i60l2j69i65l3.3992j0j4&sourceid=chrome&ie=UTF-8#lrd=0x39f5e33bc994d481:0x2c77144bed77f5df,3,,,
+
+Thanks and Regards
+Teckat Services Private limited
+Jamshedpur, Jharkhand
+https://teckat.com
+
+        '''
         msg.attach(MIMEText(body, 'plain'))
 
         img_data = open(pdfPath, 'rb').read()

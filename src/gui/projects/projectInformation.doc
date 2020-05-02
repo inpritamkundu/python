@@ -1,0 +1,4 @@
+1. calculator -> gui/projects/calculator.py
+2. data base management -> datatbase/projects/dataSystemManagenet.py
+3. data base management ->  datatbase/projects/dataSystemManagementWithMenu.py
+4. import excel generate certi and email -> excelSheet/project/importExcelGenerateCertificateSendMail.py 
