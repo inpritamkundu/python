@@ -10,6 +10,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
+import time
 
 
 root = tk.Tk()
@@ -165,6 +166,8 @@ def sendEmail():
     # attach image
     path = os.path.join(os.getcwd(), 'src', 'excelSheet', 'project')
     for i in range(len(name)):
+        if(i % 30 == 0):
+            time.sleep(120)
         pdfPath = path+'\generatedCertificate\\'+name[i]+'.jpg'
 
         print(pdfPath)
@@ -176,7 +179,7 @@ def sendEmail():
         msg['From'] = "TECKAT <noreply@teckat.com>"
         msg['To'] = toaddr
         msg['Subject'] = "certificate for teckat Webinar Session at Teckat Webinar Series."
-        body = ''' 
+        body = '''
 Congratulations dear participant,
 
 You have been certified for attending the  Webinar at Teckat Webinar Series.
@@ -203,9 +206,10 @@ https://teckat.com
         server.login(fromaddr, "hic996nZYet5")
 
         server.sendmail(fromaddr, toaddr, msg.as_string())
-
         server.quit()
-
+        print(" email sent")
+    tk.messagebox.showinfo(
+        "Teckat", "Emails sent successfully.")
 # main parent function
 
 
