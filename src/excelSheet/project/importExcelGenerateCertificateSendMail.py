@@ -166,7 +166,7 @@ def sendEmail():
     # attach image
     path = os.path.join(os.getcwd(), 'src', 'excelSheet', 'project')
     for i in range(len(name)):
-        if(i % 30 == 0):
+        if(i % 30 == 0 and i != 0):
             time.sleep(120)
         pdfPath = path+'\generatedCertificate\\'+name[i]+'.jpg'
 
@@ -183,18 +183,32 @@ def sendEmail():
 Congratulations dear participant,
 
 You have been certified for attending the  Webinar at Teckat Webinar Series.
-
 Wish to see you at upcoming sessions.
 
+For involving yourself more into such sessions, come ahead and join the  Paid Teckat Webinar Session.
+
+Link to register into paid Session- 
+https://rzp.io/l/hOael9A
+
 Your review is highly essential.
-Link:
 
-https://www.google.com/search?q=teckat&rlz=1C1CHZL_enIN833IN833&oq=tec&aqs=chrome.1.69i60j69i59j69i57j69i60l2j69i65l3.3992j0j4&sourceid=chrome&ie=UTF-8#lrd=0x39f5e33bc994d481:0x2c77144bed77f5df,3,,,
+https://www.google.com/search?q=teckat&rlz=1C1CHZL_enIN833IN833&oq=tec&aqs=chrome.1.69i60j69i59j69i57j69i60l2j69i65l3.2242j0j7&sourceid=chrome&ie=UTF-8#lrd=0x39f5e33bc994d481:0x2c77144bed77f5df,3,,,
 
-Thanks and Regards
-Teckat Services Private limited
-Jamshedpur, Jharkhand
+
+Contact us at:
+
+Instagram- https://instagram.com/in.teckat?igshid=1a711h35na9oq
+
+Facebook- teckat.com
+
+LinkedIn- https://www.linkedin.com/in/teckat-services-pvt-ltd-bb795b188
+
+
+Thanks and Regards
+Teckat Services Private Limited
+Jamshedpur, Jharkhand
 https://teckat.com
+
 
         '''
         msg.attach(MIMEText(body, 'plain'))
@@ -210,7 +224,16 @@ https://teckat.com
         print(" email sent")
     tk.messagebox.showinfo(
         "Teckat", "Emails sent successfully.")
-# main parent function
+
+
+def clearData():
+    # clear arrays
+    name.clear()
+    email.clear()
+    print(name, email)
+    tk.messagebox.showinfo(
+        "Teckat", "Data Cleared successfully.")
+    # main parent function
 
 
 def mainFunction():
@@ -303,5 +326,9 @@ GenerateCertificateButton.grid(row=9, column=1, pady=20)
 sendEmailButton = tk.Button(root, text="Send Email",
                             width=15, font=fontsizeData, command=sendEmail)
 sendEmailButton.grid(row=10, column=1, pady=20)
+
+clearDataButton = tk.Button(root, text="Clear Data",
+                            width=15, font=fontsizeData, command=clearData)
+clearDataButton.grid(row=10, column=0, pady=20)
 
 root.mainloop()
