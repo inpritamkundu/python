@@ -65,21 +65,21 @@ def generateCertificate(courseName, numDays, date):
     courseName = string.capwords(courseName)
     courseDays = string.capwords(numDays)
     courseDate = date
-
+    certiNum = "TKWB2020-"
     # adding cno to certificate number
-    # certificateNum = 'C.No :- '+certificateNum
+    certificateNum = 'C.No :- '+certiNum
 
     path = os.path.join(os.getcwd(), 'src', 'excelSheet', 'project')
 
     # Font style and size
     fontName = ImageFont.truetype(
-        r''+path+'\style\DancingScript.ttf', 130)
+        r''+path+'\style\Losttimoh.ttf', 180)
 
     fontCourse = ImageFont.truetype(
-        r''+path+'\style\Asul-Regular.ttf', 75)
+        r''+path+'\style\\701BoldBT.ttf', 75)
 
     fontDays = ImageFont.truetype(
-        r''+path+'\style\Asul-Regular.ttf', 65)
+        r''+path+'\style\\701BoldBT.ttf', 65)
     fontDate = ImageFont.truetype(
         r''+path+'\style\Asul-Regular.ttf', 70)
 
@@ -88,8 +88,84 @@ def generateCertificate(courseName, numDays, date):
 
         # create Image object with the input image
 
+        # free session content
+        # image = Image.open(
+        #     r''+path+'\originalCertificate\\freeSession\originalCertificate.jpg')
+
+        # # initialise the drawing context with
+        # # the image object as background
+
+        # draw = ImageDraw.Draw(image)
+
+        # # desired size
+
+        # # fontCertificateNum = ImageFont.truetype(
+        # #     r''+path+'\style\Asul-Regular.ttf', 50)
+
+        # # starting position of the certificate number
+
+        # # (x, y) = (2500, 100)
+        # # nameColor = 'rgb(0, 0, 0)'  # black color
+
+        # # # draw the message on the background
+        # # w, h = draw.textsize(certificateNum, font=fontCertificateNum)
+
+        # # draw.text((x-(w/2), y), certificateNum,
+        # #           fill=nameColor, font=fontCertificateNum)
+
+        # # starting position of the name
+
+        # (x, y) = (1800, 990)
+        # nameColor = 'rgb(54, 127, 193)'  # black color
+
+        # # draw the message on the background
+        # w, h = draw.textsize(name[i], font=fontName)
+
+        # draw.text((x-(w/2), y), name[i], fill=nameColor, font=fontName)
+
+        # # starting position of the course name
+
+        # (x, y) = (1775, 1370)
+        # courseColor = 'rgb(0, 0, 0)'  # black color
+
+        # # draw the message on the background
+        # w, h = draw.textsize(courseName, font=fontCourse)
+
+        # draw.text((x-(w/2), y), courseName, fill=courseColor, font=fontCourse)
+
+        # # # starting position of the No. of Days
+
+        # (x, y) = (1595, 1582)
+        # courseColor = 'rgb(0, 0, 0)'  # black color
+
+        # # draw the message on the background
+        # w, h = draw.textsize(courseDays, font=fontDays)
+
+        # draw.text((x-(w/2), y), courseDays, fill=courseColor, font=fontDays)
+
+        # # starting position of the date
+
+        # (x, y) = (1800, 1850)
+        # courseColor = 'rgb(0, 0, 0)'  # black color
+
+        # # draw the message on the background
+        # w, h = draw.textsize(courseDate, font=fontDate)
+
+        # draw.text((x-(w/2), y), courseDate, fill=courseColor, font=fontDate)
+
+        # # save the edited image
+
+        # pdfPath = path+'\generatedCertificate\\freeSession\\'+name[i]+'.jpg'
+
+        # image.save(r''+pdfPath)
+
+        #
+        #
+        #
+
+        # paid session
         image = Image.open(
-            r''+path+'\originalCertificate\originalCertificate.jpg')
+            r''+path+'\originalCertificate\\paidSession\originalCertificate.jpg')
 
         # initialise the drawing context with
         # the image object as background
@@ -98,24 +174,24 @@ def generateCertificate(courseName, numDays, date):
 
         # desired size
 
-        # fontCertificateNum = ImageFont.truetype(
-        #     r''+path+'\style\Asul-Regular.ttf', 50)
+        fontCertificateNum = ImageFont.truetype(
+            r''+path+'\style\Asul-Regular.ttf', 60)
 
         # starting position of the certificate number
 
-        # (x, y) = (2500, 100)
-        # nameColor = 'rgb(0, 0, 0)'  # black color
+        (x, y) = (2000, 100)
+        nameColor = 'rgb(0, 0, 0)'  # black color
 
-        # # draw the message on the background
-        # w, h = draw.textsize(certificateNum, font=fontCertificateNum)
+        # draw the message on the background
+        w, h = draw.textsize(certificateNum+str(i+1), font=fontCertificateNum)
 
-        # draw.text((x-(w/2), y), certificateNum,
-        #           fill=nameColor, font=fontCertificateNum)
+        draw.text((x-(w/2), y), certificateNum+str(i+1),
+                  fill=nameColor, font=fontCertificateNum)
 
         # starting position of the name
 
-        (x, y) = (1800, 990)
-        nameColor = 'rgb(54, 127, 193)'  # black color
+        (x, y) = (1400, 890)
+        nameColor = 'rgb(0,136,131)'  # black color
 
         # draw the message on the background
         w, h = draw.textsize(name[i], font=fontName)
@@ -124,8 +200,8 @@ def generateCertificate(courseName, numDays, date):
 
         # starting position of the course name
 
-        (x, y) = (1775, 1370)
-        courseColor = 'rgb(0, 0, 0)'  # black color
+        (x, y) = (1400, 1320)
+        courseColor = 'rgb(0,136,131)'   # black color
 
         # draw the message on the background
         w, h = draw.textsize(courseName, font=fontCourse)
@@ -134,8 +210,8 @@ def generateCertificate(courseName, numDays, date):
 
         # # starting position of the No. of Days
 
-        (x, y) = (1595, 1582)
-        courseColor = 'rgb(0, 0, 0)'  # black color
+        (x, y) = (1100, 1575)
+        courseColor = 'rgb(0,136,131)'   # black color
 
         # draw the message on the background
         w, h = draw.textsize(courseDays, font=fontDays)
@@ -144,7 +220,7 @@ def generateCertificate(courseName, numDays, date):
 
         # starting position of the date
 
-        (x, y) = (1800, 1850)
+        (x, y) = (1500, 1930)
         courseColor = 'rgb(0, 0, 0)'  # black color
 
         # draw the message on the background
@@ -154,7 +230,8 @@ def generateCertificate(courseName, numDays, date):
 
         # save the edited image
 
-        pdfPath = path+'\generatedCertificate\\'+name[i]+'.jpg'
+        pdfPath = path+'\generatedCertificate\paidSession\\' + \
+            certiNum+str(i+1)+" "+name[i]+'.jpg'
 
         image.save(r''+pdfPath)
 
@@ -165,11 +242,12 @@ def generateCertificate(courseName, numDays, date):
 def sendEmail():
     # attach image
     path = os.path.join(os.getcwd(), 'src', 'excelSheet', 'project')
+    certiNum = "TKWB2020-"
     for i in range(len(name)):
         if(i % 30 == 0 and i != 0):
             time.sleep(120)
-        pdfPath = path+'\generatedCertificate\\'+name[i]+'.jpg'
-
+        pdfPath = path+'\generatedCertificate\paidSession\\' + \
+            certiNum+str(i+1)+" "+name[i]+'.jpg'
         print(pdfPath)
         print(os.path.basename(pdfPath))
 
@@ -178,17 +256,19 @@ def sendEmail():
         msg = MIMEMultipart()
         msg['From'] = "TECKAT <noreply@teckat.com>"
         msg['To'] = toaddr
-        msg['Subject'] = "certificate for teckat Webinar Session at Teckat Webinar Series."
+        msg['Subject'] = "Certification for completion of 10 days webinar session successfully at Teckat Webinar Series"
         body = '''
-Congratulations dear participant,
+Dear Full Stack JavaScript participant,
 
-You have been certified for attending the  Webinar at Teckat Webinar Series.
-Wish to see you at upcoming sessions.
+We hereby congratulate you for the completion of 10 days Webinar Session successfully.
 
-For involving yourself more into such sessions, come ahead and join the  Paid Teckat Webinar Session.
+We hereby certify you with ISO CERTIFICATION for completion of course.
 
-Link to register into paid Session- 
-https://rzp.io/l/hOael9A
+We wish to see you in further sessions.
+
+Wishing you a good health.
+Stay Home and Utilitize your lockdown period to achieve more.
+
 
 Your review is highly essential.
 
@@ -197,11 +277,11 @@ https://www.google.com/search?q=teckat&rlz=1C1CHZL_enIN833IN833&oq=tec&aqs=chrom
 
 Contact us at:
 
-Instagram- https://instagram.com/in.teckat?igshid=1a711h35na9oq
+Instagram- https://www.instagram.com/india.teckat/
 
-Facebook- teckat.com
+Facebook- https://www.facebook.com/in.teckat/
 
-LinkedIn- https://www.linkedin.com/in/teckat-services-pvt-ltd-bb795b188
+LinkedIn- https://www.linkedin.com/company/teckat-service-pvt-ltd/?viewAsMember=true
 
 
 Thanks and Regards
