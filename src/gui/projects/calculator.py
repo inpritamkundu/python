@@ -54,7 +54,7 @@ def calculate():
 # Step 1
 # Creating entry form
 display = tk.Entry(root)
-display.grid(row=0, columnspan=28, sticky=tk.W+tk.E, padx=3, pady=3)
+display.grid(row=0, columnspan=4, sticky=tk.W+tk.E, padx=3, pady=3)
 
 # Creating buttons
 tk.Button(root, text="1", width=5,

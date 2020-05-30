@@ -1,5 +1,5 @@
 # import flask
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 # Create app object
 
@@ -13,11 +13,11 @@ def hello():
     data = request.get_json()
     email = data['email']
     course_id = data['course_id']
-    return '''
-    email : {}
-    course id : {}
-    '''.format(email, course_id)
+    return jsonify({
+        "email": email,
+        "course_id": course_id
+    })
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

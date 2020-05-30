@@ -2,3 +2,4 @@
 2. data base management -> datatbase/projects/dataSystemManagenet.py
 3. data base management ->  datatbase/projects/dataSystemManagementWithMenu.py
 4. import excel generate certi and email -> excelSheet/project/importExcelGenerateCertificateSendMail.py 
+5. import excel mail individual -> excelSheet/project/importExcelSendMail.py
