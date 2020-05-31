@@ -68,7 +68,7 @@ def sendEmail():
         fromaddr = "noreply@teckat.com"
         toaddr = email[i]
         msg = MIMEMultipart()
-        msg['From'] = "TECKAT <noreply@teckat.com>"
+        msg['From'] = "T-SIP 1.0 <noreply@teckat.com>"
         msg['To'] = toaddr
         msg['Subject'] = "Mail regarding Internship work details."
         body = '''
@@ -97,6 +97,7 @@ Important note:
 Contact us at:
 
 Instagram- https://www.instagram.com/india.teckat/
+           https://www.instagram.com/in.teckat/
 
 Facebook- https://www.facebook.com/in.teckat/
 

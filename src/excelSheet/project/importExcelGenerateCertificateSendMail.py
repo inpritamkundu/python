@@ -21,7 +21,11 @@ fontsizeData = font.Font(size=15)
 
 name = []
 email = []
+certiNumVal = ""
 import_file_path = ""
+numDays = ""
+certificationType = ""
+courseType = ""
 # ============================ functions ==============================================
 
 # Get excel path
@@ -59,7 +63,7 @@ def getExcelData(firstRowIndex, lastRowIndex, firstNameColumn, lastNameColumn, e
 # Generate Certificate
 
 
-def generateCertificate(courseName, numDays, date):
+def generateCertificate(courseName, numDays, date, certiNumValue):
     print()
     # capitalizing the arguments
     courseName = string.capwords(courseName)
@@ -183,9 +187,10 @@ def generateCertificate(courseName, numDays, date):
         nameColor = 'rgb(0, 0, 0)'  # black color
 
         # draw the message on the background
-        w, h = draw.textsize(certificateNum+str(i+1), font=fontCertificateNum)
+        w, h = draw.textsize(
+            certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
 
-        draw.text((x-(w/2), y), certificateNum+str(i+1),
+        draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
                   fill=nameColor, font=fontCertificateNum)
 
         # starting position of the name
@@ -231,7 +236,7 @@ def generateCertificate(courseName, numDays, date):
         # save the edited image
 
         pdfPath = path+'\generatedCertificate\paidSession\\' + \
-            certiNum+str(i+1)+" "+name[i]+'.jpg'
+            certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
 
         image.save(r''+pdfPath)
 
@@ -240,6 +245,9 @@ def generateCertificate(courseName, numDays, date):
 
 
 def sendEmail():
+    global certiNumVal
+    global courseType
+    global certificationType
     # attach image
     path = os.path.join(os.getcwd(), 'src', 'excelSheet', 'project')
     certiNum = "TKWB2020-"
@@ -247,7 +255,7 @@ def sendEmail():
         if(i % 30 == 0 and i != 0):
             time.sleep(120)
         pdfPath = path+'\generatedCertificate\paidSession\\' + \
-            certiNum+str(i+1)+" "+name[i]+'.jpg'
+            certiNum+str(int(certiNumVal)+i)+" "+name[i]+'.jpg'
         print(pdfPath)
         print(os.path.basename(pdfPath))
 
@@ -256,13 +264,14 @@ def sendEmail():
         msg = MIMEMultipart()
         msg['From'] = "TECKAT <noreply@teckat.com>"
         msg['To'] = toaddr
-        msg['Subject'] = "Certification for completion of 10 days webinar session successfully at Teckat Webinar Series"
+        msg['Subject'] = "Certification for completion of {} {} successfully at Teckat {}s".format(
+            numDays, courseType, courseType)
         body = '''
-Dear Full Stack JavaScript participant,
+Dear {},
 
-We hereby congratulate you for the completion of 10 days Webinar Session successfully.
+We hereby congratulate you for the completion of {} {} successfully.
 
-We hereby certify you with ISO CERTIFICATION for completion of course.
+We hereby certify you with {} for completion of course.
 
 We wish to see you in further sessions.
 
@@ -290,7 +299,7 @@ Jamshedpur, Jharkhand
 https://teckat.com
 
 
-        '''
+        '''.format(name[i], numDays, courseType, certificationType)
         msg.attach(MIMEText(body, 'plain'))
 
         img_data = open(pdfPath, 'rb').read()
@@ -317,6 +326,10 @@ def clearData():
 
 
 def mainFunction():
+    global certiNumVal
+    global numDays
+    global courseType
+    global certificationType
     firstRowIndex = int(entryFirstRowIndex.get())
     lastRowIndex = int(entryLastRowIndex.get())
     firstNameColumn = int(entryFirstNameIndex.get())
@@ -324,7 +337,11 @@ def mainFunction():
     emailColumn = int(entryEmailColumnIndex.get())
     courseName = entryCourseName.get()
     numDays = entryNumDays.get()
+    numDays = numDays.lower()
     date = entryDate.get()
+    certiNumVal = entryCertiNum.get()
+    courseType = courseTypeVar.get()
+    certificationType = certiTypeVar.get()
     print(firstRowIndex, lastRowIndex, firstNameColumn,
           lastNameColumn, emailColumn, courseName, numDays, date, type(date), type(firstRowIndex))
     tk.messagebox.showinfo(
@@ -332,7 +349,7 @@ def mainFunction():
 
     getExcelData(firstRowIndex, lastRowIndex,
                  firstNameColumn, lastNameColumn, emailColumn)
-    generateCertificate(courseName, numDays, date)
+    generateCertificate(courseName, numDays, date, certiNumVal)
 
 
 # ================================================ GUI ===============================================================
@@ -372,6 +389,10 @@ numDaysLabel.grid(row=7, column=0, pady=10)
 dateLabel = tk.Label(root, text="Date (eg. 01/05/2020)", font=fontsizeData)
 dateLabel.grid(row=8, column=0, pady=10)
 
+startCertiNumLabel = tk.Label(
+    root, text="Starting Certi Number", font=fontsizeData)
+startCertiNumLabel.grid(row=9, column=0, pady=10)
+
 
 # Input fields
 entryFirstRowIndex = tk.Entry(root, width=30, font=fontsizeData)
@@ -398,17 +419,56 @@ entryNumDays.grid(row=7, column=1, padx=10, pady=10)
 entryDate = tk.Entry(root, width=30, font=fontsizeData)
 entryDate.grid(row=8, column=1, padx=10, pady=10)
 
+entryCertiNum = tk.Entry(root, width=30, font=fontsizeData)
+entryCertiNum.grid(row=9, column=1, padx=10, pady=10)
+
+
+# Drop down labels and entry
+
+courseTypeLabel = tk.Label(
+    root, text="Course Type", font=fontsizeData)
+courseTypeLabel.grid(row=1, column=2, pady=10)
+
+certificationTypeLabel = tk.Label(
+    root, text="Certification Type", font=fontsizeData)
+certificationTypeLabel.grid(row=2, column=2, pady=10)
+
+# ========== certificate type =========================
+# Create a Tkinter variable
+certiTypeVar = tk.StringVar(root)
+
+# Dictionary with options
+certificateChoices = {'ISO CERTIFICATION', 'CERTIFICATION'}
+certiTypeVar.set('CERTIFICATION')  # set the default option
+
+certiMenu = tk.OptionMenu(root, certiTypeVar, *certificateChoices)
+certiMenu.grid(row=2, column=3, padx=10, pady=10)
+
+
+# ======================= course type ==================
+
+# Create a Tkinter variable
+courseTypeVar = tk.StringVar(root)
+
+# Dictionary with options
+courseChoices = {'Webinar Session', 'Internship', 'Workshop'}
+courseTypeVar.set('Webinar Session')  # set the default option
+
+courseMenu = tk.OptionMenu(root, courseTypeVar, *courseChoices)
+courseMenu.grid(row=1, column=3, padx=10, pady=10)
+
+
 # Submit button
 GenerateCertificateButton = tk.Button(root, text="Generate Certificate",
                                       width=20, font=fontsizeData, command=mainFunction)
-GenerateCertificateButton.grid(row=9, column=1, pady=20)
+GenerateCertificateButton.grid(row=10, column=1, pady=20)
 
 sendEmailButton = tk.Button(root, text="Send Email",
                             width=15, font=fontsizeData, command=sendEmail)
-sendEmailButton.grid(row=10, column=1, pady=20)
+sendEmailButton.grid(row=11, column=1, pady=20)
 
 clearDataButton = tk.Button(root, text="Clear Data",
                             width=15, font=fontsizeData, command=clearData)
-clearDataButton.grid(row=10, column=0, pady=20)
+clearDataButton.grid(row=11, column=0, pady=20)
 
 root.mainloop()
