@@ -26,6 +26,8 @@ import_file_path = ""
 numDays = ""
 certificationType = ""
 courseType = ""
+priceStatus = ""
+certifiedAt = ""
 # ============================ functions ==============================================
 
 # Get excel path
@@ -63,8 +65,8 @@ def getExcelData(firstRowIndex, lastRowIndex, firstNameColumn, lastNameColumn, e
 # Generate Certificate
 
 
-def generateCertificate(courseName, numDays, date, certiNumValue):
-    print()
+def generateCertificate(courseName, numDays, date, certiNumValue, priceStatus):
+
     # capitalizing the arguments
     courseName = string.capwords(courseName)
     courseDays = string.capwords(numDays)
@@ -89,156 +91,165 @@ def generateCertificate(courseName, numDays, date, certiNumValue):
 
     # Looping for all certificate Generation
     for i in range(len(name)):
+      # free session
 
-        # create Image object with the input image
+        if(priceStatus == 'UNPAID'):
+            # create Image object with the input image
 
-        # free session content
-        # image = Image.open(
-        #     r''+path+'\originalCertificate\\freeSession\originalCertificate.jpg')
+            # free session content
+            image = Image.open(
+                r''+path+'\originalCertificate\\freeSession\originalCertificate.jpg')
 
-        # # initialise the drawing context with
-        # # the image object as background
+            # initialise the drawing context with
+            # the image object as background
 
-        # draw = ImageDraw.Draw(image)
+            draw = ImageDraw.Draw(image)
 
-        # # desired size
+            # desired size
 
-        # # fontCertificateNum = ImageFont.truetype(
-        # #     r''+path+'\style\Asul-Regular.ttf', 50)
+            # fontCertificateNum = ImageFont.truetype(
+            #     r''+path+'\style\Asul-Regular.ttf', 50)
 
-        # # starting position of the certificate number
+            # starting position of the certificate number
 
-        # # (x, y) = (2500, 100)
-        # # nameColor = 'rgb(0, 0, 0)'  # black color
+            # (x, y) = (2500, 100)
+            # nameColor = 'rgb(0, 0, 0)'  # black color
 
-        # # # draw the message on the background
-        # # w, h = draw.textsize(certificateNum, font=fontCertificateNum)
+            # # draw the message on the background
+            # w, h = draw.textsize(certificateNum, font=fontCertificateNum)
 
-        # # draw.text((x-(w/2), y), certificateNum,
-        # #           fill=nameColor, font=fontCertificateNum)
+            # draw.text((x-(w/2), y), certificateNum,
+            #           fill=nameColor, font=fontCertificateNum)
 
-        # # starting position of the name
+            # starting position of the name
 
-        # (x, y) = (1800, 990)
-        # nameColor = 'rgb(54, 127, 193)'  # black color
+            (x, y) = (1800, 990)
+            nameColor = 'rgb(54, 127, 193)'  # black color
 
-        # # draw the message on the background
-        # w, h = draw.textsize(name[i], font=fontName)
+            # draw the message on the background
+            w, h = draw.textsize(name[i], font=fontName)
 
-        # draw.text((x-(w/2), y), name[i], fill=nameColor, font=fontName)
+            draw.text((x-(w/2), y), name[i], fill=nameColor, font=fontName)
 
-        # # starting position of the course name
+            # starting position of the course name
 
-        # (x, y) = (1775, 1370)
-        # courseColor = 'rgb(0, 0, 0)'  # black color
+            (x, y) = (1775, 1370)
+            courseColor = 'rgb(0, 0, 0)'  # black color
 
-        # # draw the message on the background
-        # w, h = draw.textsize(courseName, font=fontCourse)
+            # draw the message on the background
+            w, h = draw.textsize(courseName, font=fontCourse)
 
-        # draw.text((x-(w/2), y), courseName, fill=courseColor, font=fontCourse)
+            draw.text((x-(w/2), y), courseName,
+                      fill=courseColor, font=fontCourse)
 
-        # # # starting position of the No. of Days
+            # # starting position of the No. of Days
 
-        # (x, y) = (1595, 1582)
-        # courseColor = 'rgb(0, 0, 0)'  # black color
+            (x, y) = (1595, 1582)
+            courseColor = 'rgb(0, 0, 0)'  # black color
 
-        # # draw the message on the background
-        # w, h = draw.textsize(courseDays, font=fontDays)
+            # draw the message on the background
+            w, h = draw.textsize(courseDays, font=fontDays)
 
-        # draw.text((x-(w/2), y), courseDays, fill=courseColor, font=fontDays)
+            draw.text((x-(w/2), y), courseDays,
+                      fill=courseColor, font=fontDays)
 
-        # # starting position of the date
+            # starting position of the date
 
-        # (x, y) = (1800, 1850)
-        # courseColor = 'rgb(0, 0, 0)'  # black color
+            (x, y) = (1800, 1850)
+            courseColor = 'rgb(0, 0, 0)'  # black color
 
-        # # draw the message on the background
-        # w, h = draw.textsize(courseDate, font=fontDate)
+            # draw the message on the background
+            w, h = draw.textsize(courseDate, font=fontDate)
 
-        # draw.text((x-(w/2), y), courseDate, fill=courseColor, font=fontDate)
+            draw.text((x-(w/2), y), courseDate,
+                      fill=courseColor, font=fontDate)
 
-        # # save the edited image
+            # save the edited image
 
-        # pdfPath = path+'\generatedCertificate\\freeSession\\'+name[i]+'.jpg'
+            pdfPath = path+'\generatedCertificate\\freeSession\\' + \
+                name[i]+'.jpg'
 
-        # image.save(r''+pdfPath)
+            image.save(r''+pdfPath)
 
-        #
-        #
-        #
+            #
+            #
+            #
+            # paid session
+        elif(priceStatus == 'PAID'):
+            image = Image.open(
+                r''+path+'\originalCertificate\\paidSession\originalCertificate.jpg')
 
-        # paid session
-        image = Image.open(
-            r''+path+'\originalCertificate\\paidSession\originalCertificate.jpg')
+            # initialise the drawing context with
+            # the image object as background
 
-        # initialise the drawing context with
-        # the image object as background
+            draw = ImageDraw.Draw(image)
 
-        draw = ImageDraw.Draw(image)
+            # desired size
 
-        # desired size
+            fontCertificateNum = ImageFont.truetype(
+                r''+path+'\style\Asul-Regular.ttf', 60)
 
-        fontCertificateNum = ImageFont.truetype(
-            r''+path+'\style\Asul-Regular.ttf', 60)
+            # starting position of the certificate number
 
-        # starting position of the certificate number
+            (x, y) = (2000, 100)
+            nameColor = 'rgb(0, 0, 0)'  # black color
 
-        (x, y) = (2000, 100)
-        nameColor = 'rgb(0, 0, 0)'  # black color
+            # draw the message on the background
+            w, h = draw.textsize(
+                certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
 
-        # draw the message on the background
-        w, h = draw.textsize(
-            certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
+            draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
+                      fill=nameColor, font=fontCertificateNum)
 
-        draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
-                  fill=nameColor, font=fontCertificateNum)
+            # starting position of the name
 
-        # starting position of the name
+            (x, y) = (1400, 890)
+            nameColor = 'rgb(0,136,131)'  # black color
 
-        (x, y) = (1400, 890)
-        nameColor = 'rgb(0,136,131)'  # black color
+            # draw the message on the background
+            w, h = draw.textsize(name[i], font=fontName)
 
-        # draw the message on the background
-        w, h = draw.textsize(name[i], font=fontName)
+            draw.text((x-(w/2), y), name[i], fill=nameColor, font=fontName)
 
-        draw.text((x-(w/2), y), name[i], fill=nameColor, font=fontName)
+            # starting position of the course name
 
-        # starting position of the course name
+            (x, y) = (1400, 1320)
+            courseColor = 'rgb(0,136,131)'   # black color
 
-        (x, y) = (1400, 1320)
-        courseColor = 'rgb(0,136,131)'   # black color
+            # draw the message on the background
+            w, h = draw.textsize(courseName, font=fontCourse)
 
-        # draw the message on the background
-        w, h = draw.textsize(courseName, font=fontCourse)
+            draw.text((x-(w/2), y), courseName,
+                      fill=courseColor, font=fontCourse)
 
-        draw.text((x-(w/2), y), courseName, fill=courseColor, font=fontCourse)
+            # # starting position of the No. of Days
 
-        # # starting position of the No. of Days
+            (x, y) = (1100, 1575)
+            courseColor = 'rgb(0,136,131)'   # black color
 
-        (x, y) = (1100, 1575)
-        courseColor = 'rgb(0,136,131)'   # black color
+            # draw the message on the background
+            w, h = draw.textsize(courseDays, font=fontDays)
 
-        # draw the message on the background
-        w, h = draw.textsize(courseDays, font=fontDays)
+            draw.text((x-(w/2), y), courseDays,
+                      fill=courseColor, font=fontDays)
 
-        draw.text((x-(w/2), y), courseDays, fill=courseColor, font=fontDays)
+            # starting position of the date
 
-        # starting position of the date
+            (x, y) = (1500, 1930)
+            courseColor = 'rgb(0, 0, 0)'  # black color
 
-        (x, y) = (1500, 1930)
-        courseColor = 'rgb(0, 0, 0)'  # black color
+            # draw the message on the background
+            w, h = draw.textsize(courseDate, font=fontDate)
 
-        # draw the message on the background
-        w, h = draw.textsize(courseDate, font=fontDate)
+            draw.text((x-(w/2), y), courseDate,
+                      fill=courseColor, font=fontDate)
 
-        draw.text((x-(w/2), y), courseDate, fill=courseColor, font=fontDate)
+            # save the edited image
 
-        # save the edited image
+            pdfPath = path+'\generatedCertificate\paidSession\\' + \
+                certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
 
-        pdfPath = path+'\generatedCertificate\paidSession\\' + \
-            certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
-
-        image.save(r''+pdfPath)
+            image.save(r''+pdfPath)
 
     tk.messagebox.showinfo(
         "Teckat", "Certificates generated successfully. do not close the window without pressing send email or else the data will be lost.")
@@ -248,14 +259,19 @@ def sendEmail():
     global certiNumVal
     global courseType
     global certificationType
+    global certifiedAt
     # attach image
     path = os.path.join(os.getcwd(), 'src', 'excelSheet', 'project')
     certiNum = "TKWB2020-"
     for i in range(len(name)):
         if(i % 30 == 0 and i != 0):
             time.sleep(120)
-        pdfPath = path+'\generatedCertificate\paidSession\\' + \
-            certiNum+str(int(certiNumVal)+i)+" "+name[i]+'.jpg'
+        if(priceStatus == 'UNPAID'):
+            pdfPath = path+'\generatedCertificate\\freeSession\\' + \
+                name[i]+'.jpg'
+        elif(priceStatus == 'PAID'):
+            pdfPath = path+'\generatedCertificate\paidSession\\' + \
+                certiNum+str(int(certiNumVal)+i)+" "+name[i]+'.jpg'
         print(pdfPath)
         print(os.path.basename(pdfPath))
 
@@ -264,8 +280,8 @@ def sendEmail():
         msg = MIMEMultipart()
         msg['From'] = "TECKAT <noreply@teckat.com>"
         msg['To'] = toaddr
-        msg['Subject'] = "Certification for completion of {} {} successfully at Teckat {}s".format(
-            numDays, courseType, courseType)
+        msg['Subject'] = "Certification for completion of {} {} successfully at Teckat {}".format(
+            numDays, courseType, certifiedAt)
         body = '''
 Dear {},
 
@@ -330,6 +346,8 @@ def mainFunction():
     global numDays
     global courseType
     global certificationType
+    global priceStatus
+    global certifiedAt
     firstRowIndex = int(entryFirstRowIndex.get())
     lastRowIndex = int(entryLastRowIndex.get())
     firstNameColumn = int(entryFirstNameIndex.get())
@@ -342,6 +360,8 @@ def mainFunction():
     certiNumVal = entryCertiNum.get()
     courseType = courseTypeVar.get()
     certificationType = certiTypeVar.get()
+    priceStatus = priceStatusVar.get()
+    certifiedAt = certifiedAtVar.get()
     print(firstRowIndex, lastRowIndex, firstNameColumn,
           lastNameColumn, emailColumn, courseName, numDays, date, type(date), type(firstRowIndex))
     tk.messagebox.showinfo(
@@ -349,7 +369,7 @@ def mainFunction():
 
     getExcelData(firstRowIndex, lastRowIndex,
                  firstNameColumn, lastNameColumn, emailColumn)
-    generateCertificate(courseName, numDays, date, certiNumVal)
+    generateCertificate(courseName, numDays, date, certiNumVal, priceStatus)
 
 
 # ================================================ GUI ===============================================================
@@ -425,13 +445,31 @@ entryCertiNum.grid(row=9, column=1, padx=10, pady=10)
 
 # Drop down labels and entry
 
+priceStatusLabel = tk.Label(
+    root, text="Course Type", font=fontsizeData)
+priceStatusLabel.grid(row=1, column=2, pady=10)
+
 courseTypeLabel = tk.Label(
     root, text="Course Type", font=fontsizeData)
-courseTypeLabel.grid(row=1, column=2, pady=10)
+courseTypeLabel.grid(row=2, column=2, pady=10)
 
 certificationTypeLabel = tk.Label(
     root, text="Certification Type", font=fontsizeData)
-certificationTypeLabel.grid(row=2, column=2, pady=10)
+certificationTypeLabel.grid(row=3, column=2, pady=10)
+
+CertifiedAtLabel = tk.Label(
+    root, text="Certified At", font=fontsizeData)
+CertifiedAtLabel.grid(row=4, column=2, pady=10)
+# =========== price status ======================
+# Create a Tkinter variable
+priceStatusVar = tk.StringVar(root)
+
+# Dictionary with options
+priceStatusChoices = {'PAID', 'UNPAID'}
+priceStatusVar.set('PAID')  # set the default option
+
+priceStatusMenu = tk.OptionMenu(root, priceStatusVar, *priceStatusChoices)
+priceStatusMenu.grid(row=1, column=3, padx=10, pady=10)
 
 # ========== certificate type =========================
 # Create a Tkinter variable
@@ -442,7 +480,7 @@ certificateChoices = {'ISO CERTIFICATION', 'CERTIFICATION'}
 certiTypeVar.set('CERTIFICATION')  # set the default option
 
 certiMenu = tk.OptionMenu(root, certiTypeVar, *certificateChoices)
-certiMenu.grid(row=2, column=3, padx=10, pady=10)
+certiMenu.grid(row=3, column=3, padx=10, pady=10)
 
 
 # ======================= course type ==================
@@ -455,7 +493,20 @@ courseChoices = {'Webinar Session', 'Internship', 'Workshop'}
 courseTypeVar.set('Webinar Session')  # set the default option
 
 courseMenu = tk.OptionMenu(root, courseTypeVar, *courseChoices)
-courseMenu.grid(row=1, column=3, padx=10, pady=10)
+courseMenu.grid(row=2, column=3, padx=10, pady=10)
+
+
+# ======================= Certified At ==================
+
+# Create a Tkinter variable
+certifiedAtVar = tk.StringVar(root)
+
+# Dictionary with options
+certifiedAtChoices = {'webinar series 1.0', 'webinar series 2.0'}
+certifiedAtVar.set('webinar series 2.0')  # set the default option
+
+certifiedAtMenu = tk.OptionMenu(root, certifiedAtVar, *certifiedAtChoices)
+certifiedAtMenu.grid(row=4, column=3, padx=10, pady=10)
 
 
 # Submit button
