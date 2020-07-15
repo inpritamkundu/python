@@ -21,6 +21,7 @@ fontsizeData = font.Font(size=15)
 
 name = []
 email = []
+link = []
 import_file_path = ""
 # ============================ functions ==============================================
 
@@ -35,10 +36,11 @@ def getExcelPath():
 # Get excel Data
 
 
-def getExcelData(firstRowIndex, lastRowIndex, firstNameColumn, lastNameColumn, emailColumn):
+def getExcelData(firstRowIndex, lastRowIndex, firstNameColumn, lastNameColumn, emailColumn, linkColumn):
     global import_file_path
     global name
     global email
+    global link
 
     print()
 
@@ -53,57 +55,57 @@ def getExcelData(firstRowIndex, lastRowIndex, firstNameColumn, lastNameColumn, e
         name.append(string.capwords(sheet.cell_value(i, firstNameColumn-1) + " " +
                                     sheet.cell_value(i, lastNameColumn-1)))
         email.append(sheet.cell_value(i, emailColumn-1))
+        link.append(sheet.cell_value(i, linkColumn-1).split(','))
     print(name)
     print(email)
+    print(link)
+    tk.messagebox.showinfo(
+        "Teckat", "Data generated successfully.")
 
 
 def sendEmail():
     # attach image
-    path = os.path.join(os.getcwd(), 'src', 'excelSheet', 'project')
-    certiNum = "TKWB2020-"
+    # path = os.path.join(os.getcwd(), 'src', 'excelSheet', 'project')
+    # certiNum = "TKWB2020-"
+    global name
+    global link
+    global email
     for i in range(len(name)):
         if(i % 30 == 0 and i != 0):
-            time.sleep(120)
+            time.sleep(300)
 
         fromaddr = "noreply@teckat.com"
         toaddr = email[i]
         msg = MIMEMultipart()
-        msg['From'] = "T-SIP 1.0 <noreply@teckat.com>"
+        msg['From'] = "Teckat Student Intern Partner <noreply@teckat.com>"
         msg['To'] = toaddr
-        msg['Subject'] = "Mail regarding Internship work details."
+        msg['Subject'] = "T-SIP 2.O : RESULT TIME"
         body = '''
 
 Dear {},
-We hereby notify you with your work during the internship period.
 
-1. 2 day workshop shall reach the target of 10 participants in each workshop. 
-2. 10 days paid Webinar Series shall reach the target of 10 participants.
-3. 30 days and 45 days summer internship shall reach the target of 10 participants.
+We regret to inform you that you have not qualified the written round held on 12 July 2020.
+We hope to see you in the next internship program. 
+Somewhere your answers were not satisfying in the written round.
+We are thankful to you for your valuable time you spent with us during selection procedure.
 
+Keep upgrading yourself and wish you good luck for the future.
+Thank you.
 
-Note:
-Below is the attachment of all the above 3 description.
-You may use it for your Promotion.
-
-You have been given details of incentive throughout the internship. Keep it safe for your reference.
-
-
-Important note:
-*You will recieve your incentive at once after the completion of internship
-*You will be certified for the internship after the completion of internship.
-*Any bonus added to your incentive will be released together after the completion of internship.
-* You will be sent 3 different link on your whatsapp for getting participants registered.
+link 50/-   -> {}
+link 149/-  -> {}
+link 1189/- -> {}
 
 Contact us at:
 
-Instagram- https://www.instagram.com/india.teckat/
-           https://www.instagram.com/in.teckat/
+Instagram-  https://www.instagram.com/india.teckat/
+            https://www.instagram.com/in.teckat/
 
 Facebook- https://www.facebook.com/in.teckat/
 
 LinkedIn- https://www.linkedin.com/company/teckat-service-pvt-ltd/?viewAsMember=true
 
-Mail : support@teckat.com
+For any further queries you may mail us at support@teckat.com
 
 Thanks and Regards
 Teckat Services Private Limited
@@ -111,7 +113,7 @@ Jamshedpur, Jharkhand
 https://teckat.com
 
 
-        '''.format(name[i])
+        '''.format(name[i], link[i][0], link[i][1], link[i][2])
         msg.attach(MIMEText(body, 'plain'))
         server = smtplib.SMTP_SSL('smtp.zoho.in:465')
         server.login(fromaddr, "hic996nZYet5")
@@ -128,7 +130,8 @@ def clearData():
     # clear arrays
     name.clear()
     email.clear()
-    print(name, email)
+    link.clear()
+    print(name, email, link)
     tk.messagebox.showinfo(
         "Teckat", "Data Cleared successfully.")
     # main parent function
@@ -140,13 +143,14 @@ def mainFunction():
     firstNameColumn = int(entryFirstNameIndex.get())
     lastNameColumn = int(entryLastNameIndex.get())
     emailColumn = int(entryEmailColumnIndex.get())
+    linkColumn = int(entryLinkColumnIndex.get())
     print(firstRowIndex, lastRowIndex, firstNameColumn,
-          lastNameColumn, emailColumn)
+          lastNameColumn, emailColumn, linkColumn)
     tk.messagebox.showinfo(
-        "Teckat", "Data stored Successfully wait for certificate generation")
+        "Teckat", "Data stored Successfully wait for data generation")
 
     getExcelData(firstRowIndex, lastRowIndex,
-                 firstNameColumn, lastNameColumn, emailColumn)
+                 firstNameColumn, lastNameColumn, emailColumn, linkColumn)
 
 
 # ================================================ GUI ===============================================================
@@ -176,6 +180,10 @@ emailColumnLabel = tk.Label(
     root, text="Email Column No.", font=fontsizeData)
 emailColumnLabel.grid(row=5, column=0, pady=10)
 
+linkColumnLabel = tk.Label(
+    root, text="Link Column No.", font=fontsizeData)
+linkColumnLabel.grid(row=6, column=0, pady=10)
+
 
 # Input fields
 entryFirstRowIndex = tk.Entry(root, width=30, font=fontsizeData)
@@ -192,6 +200,9 @@ entryLastNameIndex.grid(row=4, column=1, padx=10, pady=10)
 
 entryEmailColumnIndex = tk.Entry(root, width=30, font=fontsizeData)
 entryEmailColumnIndex.grid(row=5, column=1, padx=10, pady=10)
+
+entryLinkColumnIndex = tk.Entry(root, width=30, font=fontsizeData)
+entryLinkColumnIndex.grid(row=6, column=1, padx=10, pady=10)
 
 # Submit button
 
