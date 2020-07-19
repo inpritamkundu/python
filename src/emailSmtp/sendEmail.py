@@ -5,6 +5,8 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
+from email.mime.base import MIMEBase
+from email import encoders
 import os
 
 
@@ -45,7 +47,7 @@ import os
 
 
 # text + image
-path = os.path.join(os.getcwd(), 'src', 'emailSmtp', 'originalCertificate.jpg')
+path = os.path.join(os.getcwd(), 'src', 'emailSmtp', 'workshop.xlsx')
 print(path)
 print(os.path.basename(path))
 fromaddr = "noreply@teckat.com"
@@ -58,9 +60,34 @@ body = ''' hello
 This is pritam
     CEO Teckat'''
 msg.attach(MIMEText(body, 'plain'))
-img_data = open(path, 'rb').read()
-image = MIMEImage(img_data, name=os.path.basename(path))
-msg.attach(image)
+
+# image attachment
+# img_data = open(path, 'rb').read()
+# image = MIMEImage(img_data, name=os.path.basename(path))
+# msg.attach(image)
+
+
+# pdf attachment
+
+# open the file to be sent
+filename = "test.xlsx"
+attachment = open(path, "rb")
+
+# instance of MIMEBase and named as p
+p = MIMEBase('application', 'octet-stream')
+
+# To change the payload into encoded form
+p.set_payload((attachment).read())
+
+# encode into base64
+encoders.encode_base64(p)
+
+p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+
+# attach the instance 'p' to instance 'msg'
+msg.attach(p)
+
+
 server = smtplib.SMTP_SSL('smtp.zoho.in:465')
 server.login(fromaddr, "hic996nZYet5")
 

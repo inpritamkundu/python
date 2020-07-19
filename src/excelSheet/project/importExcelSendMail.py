@@ -10,6 +10,8 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
+from email.mime.base import MIMEBase
+from email import encoders
 import time
 
 
@@ -22,6 +24,7 @@ fontsizeData = font.Font(size=15)
 name = []
 email = []
 link = []
+path = []
 import_file_path = ""
 # ============================ functions ==============================================
 
@@ -31,6 +34,13 @@ import_file_path = ""
 def getExcelPath():
     global import_file_path
     import_file_path = filedialog.askopenfilename()
+    print(import_file_path, type(import_file_path))
+
+
+# Get attachment path
+def getAttachmentPath():
+    import_file_path = filedialog.askopenfilename()
+    path.append(import_file_path)
     print(import_file_path, type(import_file_path))
 
 # Get excel Data
@@ -55,10 +65,12 @@ def getExcelData(firstRowIndex, lastRowIndex, firstNameColumn, lastNameColumn, e
         name.append(string.capwords(sheet.cell_value(i, firstNameColumn-1) + " " +
                                     sheet.cell_value(i, lastNameColumn-1)))
         email.append(sheet.cell_value(i, emailColumn-1))
-        link.append(sheet.cell_value(i, linkColumn-1).split(','))
+        if(linkColumn != ''):
+            link.append(sheet.cell_value(i, linkColumn-1).split(','))
     print(name)
     print(email)
     print(link)
+    print(path)
     tk.messagebox.showinfo(
         "Teckat", "Data generated successfully.")
 
@@ -70,6 +82,8 @@ def sendEmail():
     global name
     global link
     global email
+    global path
+
     for i in range(len(name)):
         if(i % 30 == 0 and i != 0):
             time.sleep(300)
@@ -79,42 +93,250 @@ def sendEmail():
         msg = MIMEMultipart()
         msg['From'] = "Teckat Student Intern Partner <noreply@teckat.com>"
         msg['To'] = toaddr
-        msg['Subject'] = "T-SIP 2.O : RESULT TIME"
+        msg['Subject'] = "FIRST BONUS WEEK AT T-SIP 2.O"
         body = '''
 
 Dear {},
 
-We regret to inform you that you have not qualified the written round held on 12 July 2020.
-We hope to see you in the next internship program. 
-Somewhere your answers were not satisfying in the written round.
-We are thankful to you for your valuable time you spent with us during selection procedure.
+This is your first bonus week. So utilize the entire week wisely.
 
-Keep upgrading yourself and wish you good luck for the future.
-Thank you.
+This bonus week will be in terms of extra percentage that you receive on eacb payment.
 
-link 50/-   -> {}
-link 149/-  -> {}
-link 1189/- -> {}
+Dated from 16 July 2020 to  25 July 2020, the entire week is the bonus week.
 
-Contact us at:
+What to do ?
+You have to get as many successful enrollment of students in various workshops and Webinars only  to be conducted.
 
-Instagram-  https://www.instagram.com/india.teckat/
-            https://www.instagram.com/in.teckat/
+What you get?
+You will get 20% , on each successful payment in any of the workshop course and 15% , on each successful payment in any of the  webinar course.
 
-Facebook- https://www.facebook.com/in.teckat/
+Remember- This bonus week is only for successful payment coming in workshops and Webinars
 
-LinkedIn- https://www.linkedin.com/company/teckat-service-pvt-ltd/?viewAsMember=true
+Count each day in your hands and grab the opportunity to add something good in your account.
 
-For any further queries you may mail us at support@teckat.com
+All the best.
 
-Thanks and Regards
-Teckat Services Private Limited
-Jamshedpur, Jharkhand
-https://teckat.com
-
-
-        '''.format(name[i], link[i][0], link[i][1], link[i][2])
+        '''.format(name[i])
         msg.attach(MIMEText(body, 'plain'))
+
+        html = '''
+        
+<html>
+  <head></head>
+  <body>
+
+<div><!--[if mso]>
+  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://teckat.com" style="height:40px;v-text-anchor:middle;width:200px;" arcsize="10%" strokecolor="#1e3650" fillcolor="#556270">
+    <w:anchorlock/>
+    <center style="color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;">Show me the button!</center>
+  </v:roundrect>
+<![endif]--><a href="http://teckat.com"
+style="background-color:#556270;border:1px solid #1e3650;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;">Show me the button!</a></div>
+    
+<div>
+    <br>
+</div>
+<div data-zbluepencil-ignore="true" id="Zm-_Id_-Sgn">
+    <div>
+        <table style="box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; width: 525px; font-size: 11pt; font-family: Arial, sans-serif" class="ng-scope" cellspacing="0" cellpadding="0">
+            <tbody style="box-sizing: border-box">
+                <tr style="box-sizing: border-box">
+                    <td style="box-sizing: border-box; padding: 0px 10px 0px 0px; font-size: 10pt; font-family: Arial, sans-serif; border-right: 1px solid rgb(251, 99, 3); width: 125px; vertical-align: top" class="ng-scope" rowspan="6" valign="top" width="125">
+                        <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" class="ng-scope" target="_blank" href="https://teckat.com/">
+                            <img style="box-sizing: border-box; border: 0px; vertical-align: middle; width: 105px; height: auto" src="https://teckat.com/images/icons/icon-72x72.png" width="105" alt="Logo" border="0" height="auto">
+                        </a>
+                        <br>
+                    </td>
+                    <td style="box-sizing: border-box; padding: 0px 0px 0px 10px">
+                        <table style="box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; background-color: transparent" cellspacing="0" cellpadding="0">
+                            <tbody style="box-sizing: border-box">
+                                <tr style="box-sizing: border-box">
+                                    <td style="box-sizing: border-box; padding: 0px 0px 5px 10px; font-size: 10pt; color: rgb(0, 121, 172); font-family: Arial, sans-serif; width: 400px; vertical-align: top" valign="top">
+                                        THANKS &amp; REGARDS
+                                        <br>
+                                    </td>
+                                </tr>
+                                <tr style="box-sizing: border-box">
+                                    <td style="box-sizing: border-box; padding: 5px 0px 5px 10px; font-size: 10pt; color: rgb(68, 68, 68); font-family: Arial, sans-serif; vertical-align: top; line-height: 17px" valign="top">
+                                        <span style="box-sizing: border-box" class="ng-scope">
+                                            <span class="colour" style="color: rgb(251, 99, 3); box-sizing: border-box;">
+                                                <b>
+                                                    a:
+                                                    <span>
+                                                        &nbsp;
+                                                    </span>
+                                                </b>
+                                            </span>
+                                            <span class="colour" style="color:rgb(0, 0, 0)">
+                                                <span class="font" style="font-family:Arial, sans-serif">
+                                                    <span class="size" style="font-size: 10pt; box-sizing: border-box;">
+                                                        Teckat Services Private Limited
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span>
+                                                &nbsp;
+                                            </span>
+                                            <span class="colour" style="color:rgb(0, 0, 0)">
+                                                <span class="font" style="font-family:Arial, sans-serif">
+                                                    <span class="size" style="font-size: 10pt; box-sizing: border-box;">
+                                                        <span style="box-sizing: border-box" class="ng-scope">
+                                                            |
+                                                            <span>
+                                                                &nbsp;
+                                                            </span>
+                                                        </span>
+                                                        14, Sidhgora Main Market, Sidhgora, Jamshedpur, Jharkhand
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span>
+                                                &nbsp;
+                                            </span>
+                                            <span class="colour" style="color:rgb(0, 0, 0)">
+                                                <span class="font" style="font-family:Arial, sans-serif">
+                                                    <span class="size" style="font-size: 10pt; box-sizing: border-box;">
+                                                        <span style="box-sizing: border-box" class="ng-scope">
+                                                            |
+                                                            <span>
+                                                                &nbsp;
+                                                            </span>
+                                                        </span>
+                                                        831009
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <br style="box-sizing: border-box">
+                                            <span class="colour" style="color: rgb(251, 99, 3); box-sizing: border-box;">
+                                                <b>
+                                                    e:
+                                                </b>
+                                            </span>
+                                            <span class="colour" style="color:rgb(0, 0, 0)">
+                                                <span class="font" style="font-family:Arial, sans-serif">
+                                                    <span class="size" style="font-size: 10pt; box-sizing: border-box;">
+                                                        <span>
+                                                            &nbsp;
+                                                        </span>
+                                                        <a target="_blank" href="mailto:support@teckat.com">
+                                                            support@teckat.com
+                                                        </a>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                        <span>
+                                            &nbsp;
+                                        </span>
+                                        <span style="box-sizing: border-box" class="ng-scope">
+                                            <span style="box-sizing: border-box" class="ng-scope">
+                                                |
+                                                <span>
+                                                    &nbsp;
+                                                </span>
+                                            </span>
+                                            <span class="colour" style="color: rgb(251, 99, 3); box-sizing: border-box;">
+                                                <b>
+                                                    w:
+                                                </b>
+                                            </span>
+                                            <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" target="_blank" href="http://teckat.com/">
+                                                <span class="colour" style="color:rgb(0, 0, 0)">
+                                                    <span class="font" style="font-family:Arial, sans-serif">
+                                                        <span class="size" style="font-size: 10pt; box-sizing: border-box;">
+                                                            <span>
+                                                                &nbsp;
+                                                            </span>
+                                                            teckat.com
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                            <br style="box-sizing: border-box">
+                                            <span class="colour" style="color: rgb(251, 99, 3); box-sizing: border-box;">
+                                                <b>
+                                                    m:
+                                                </b>
+                                            </span>
+                                            <span class="colour" style="color:rgb(0, 0, 0)">
+                                                <span class="font" style="font-family:Arial, sans-serif">
+                                                    <span class="size" style="font-size: 10pt; box-sizing: border-box;">
+                                                        <span>
+                                                            &nbsp;
+                                                        </span>
+                                                        9337704495
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr style="box-sizing: border-box" class="ng-scope">
+                                    <td style="box-sizing: border-box; padding: 5px 0px 0px 10px; font-size: 10pt; font-family: Arial, sans-serif; vertical-align: bottom" valign="bottom">
+                                        <span style="box-sizing: border-box" class="ng-scope">
+                                            <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" target="_blank" href="https://www.facebook.com/in.teckat/">
+                                                <img style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/fb.png" alt="facebook icon" width="19" border="0" height="19">
+                                            </a>
+                                            &nbsp;
+                                            <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" target="_blank" href="https://www.linkedin.com/company/teckat-service-pvt-ltd/?viewAsMember=true">
+                                                <img style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/ln.png" alt="linkedin icon" width="19" border="0" height="19">
+                                            </a>
+                                            &nbsp;
+                                            <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" target="_blank" href="https://www.instagram.com/india.teckat/">
+                                                <img style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/it.png" alt="instagram icon" width="19" border="0" height="19">
+                                            </a>
+                                            &nbsp;
+                                        </span>
+                                        <br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+  </body>
+</html>
+
+        '''
+        msg.attach(MIMEText(html, 'html'))
+
+        # attach attachments if present
+
+        if(len(path)):
+            for j in range(len(path)):
+
+                # Generating File name
+                emailFileName = path[j].split('/')
+                print(emailFileName)
+                # open the file to be sent
+                filename = emailFileName[-1]
+                attachment = open(path[i], "rb")
+
+                # instance of MIMEBase and named as p
+                p = MIMEBase('application', 'octet-stream')
+
+                # To change the payload into encoded form
+                p.set_payload((attachment).read())
+
+                # encode into base64
+                encoders.encode_base64(p)
+
+                p.add_header('Content-Disposition',
+                             "attachment; filename= %s" % filename)
+
+                # attach the instance 'p' to instance 'msg'
+                msg.attach(p)
+
         server = smtplib.SMTP_SSL('smtp.zoho.in:465')
         server.login(fromaddr, "hic996nZYet5")
 
@@ -131,7 +353,8 @@ def clearData():
     name.clear()
     email.clear()
     link.clear()
-    print(name, email, link)
+    path.clear()
+    print(name, email, link, path)
     tk.messagebox.showinfo(
         "Teckat", "Data Cleared successfully.")
     # main parent function
@@ -143,7 +366,12 @@ def mainFunction():
     firstNameColumn = int(entryFirstNameIndex.get())
     lastNameColumn = int(entryLastNameIndex.get())
     emailColumn = int(entryEmailColumnIndex.get())
-    linkColumn = int(entryLinkColumnIndex.get())
+    linkStatus = int(linkVar.get())
+    if(linkStatus == 1):
+
+        linkColumn = int(entryLinkColumnIndex.get())
+    else:
+        linkColumn = ""
     print(firstRowIndex, lastRowIndex, firstNameColumn,
           lastNameColumn, emailColumn, linkColumn)
     tk.messagebox.showinfo(
@@ -203,6 +431,18 @@ entryEmailColumnIndex.grid(row=5, column=1, padx=10, pady=10)
 
 entryLinkColumnIndex = tk.Entry(root, width=30, font=fontsizeData)
 entryLinkColumnIndex.grid(row=6, column=1, padx=10, pady=10)
+
+linkVar = tk.IntVar()
+
+tk.Checkbutton(root, text="Do you want to attach Link",
+               variable=linkVar, font=fontsizeData).grid(row=6, column=2, padx=5, pady=5)
+
+# attachment button
+# excel button
+browseButton_Excel = tk.Button(root, text='Attach files one by one', command=getAttachmentPath,
+                               bg='green', fg='white', height=2, width=30, font=('helvetica', 12, 'bold'))
+browseButton_Excel.grid(row=7, column=1, pady=30)
+
 
 # Submit button
 
