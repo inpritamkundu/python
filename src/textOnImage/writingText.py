@@ -8,7 +8,7 @@ path = os.path.join(os.getcwd(), 'src', 'textOnImage')
 # create Image object with the input image
 
 image = Image.open(
-    r''+path+'\image\certificate.jpg')
+    r''+path+'\image\originalCertificate.jpg')
 
 # initialise the drawing context with
 # the image object as background
@@ -80,4 +80,4 @@ draw.text((x-(w/2), y), courseName, fill=courseColor, font=fontDate)
 
 # save the edited image
 
-image.save(r''+path+'\image\\'+userName+'.pdf')
+image.save(r''+path+'\image\\'+userName+'.jpg')

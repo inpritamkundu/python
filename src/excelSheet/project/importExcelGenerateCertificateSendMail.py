@@ -342,7 +342,91 @@ def generateCertificate(courseName, numDays, date, certiNumValue, priceStatus, c
 
             # internship paid session
             elif(courseType == 'Internship'):
-                print('internship')
+                # print('internship')
+
+                image = Image.open(
+                    r''+path+'\originalCertificate\\paidSession\webinar 2.0\internshipCourse\originalCertificate.jpg')
+
+                # initialise the drawing context with
+                # the image object as background
+
+                draw = ImageDraw.Draw(image)
+
+                # desired size
+
+                fontCertificateNum = ImageFont.truetype(
+                    r''+path+'\style\Baloo2-Medium.ttf', 50)
+                fontDate = ImageFont.truetype(
+                    r''+path+'\style\Baloo2-Medium.ttf', 50)
+                fontDays = ImageFont.truetype(
+                    r''+path+'\style\Baloo2-Medium.ttf', 50)
+                fontName = ImageFont.truetype(
+                    r''+path+'\style\Lucida_Calligraphy_Italic.ttf', 160)
+                fontCourse = ImageFont.truetype(
+                    r''+path+'\style\Lucida_Calligraphy_Italic.ttf', 90)
+
+                certificateNum = certiNum
+                # starting position of the certificate number
+
+                (x, y) = (2100, 150)
+                nameColor = 'rgb(66, 66, 66)'  # black color
+
+                # draw the message on the background
+                w, h = draw.textsize(
+                    certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
+
+                draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
+                          fill=nameColor, font=fontCertificateNum)
+
+                # starting position of the name
+
+                (x, y) = (1250, 1680)
+                nameColor = 'rgb(3, 141, 131)'  # black color
+
+                # draw the message on the background
+                w, h = draw.textsize(name[i], font=fontName)
+
+                draw.text((x-(w/2), y), name[i], fill=nameColor, font=fontName)
+
+                # starting position of the course name
+
+                (x, y) = (1250, 2070)
+                courseColor = 'rgb(3, 141, 131)'   # black color
+
+                # draw the message on the background
+                w, h = draw.textsize(courseName, font=fontCourse)
+
+                draw.text((x-(w/2), y), courseName,
+                          fill=courseColor, font=fontCourse)
+
+                # # # starting position of the No. of Days
+
+                # (x, y) = (1458, 2290)
+                # courseColor = 'rgb(44, 44, 44)'   # black color
+
+                # # draw the message on the background
+                # w, h = draw.textsize(courseDays, font=fontDays)
+
+                # draw.text((x-(w/2), y), courseDays,
+                #           fill=courseColor, font=fontDays)
+
+                # starting position of the date
+
+                (x, y) = (250, 150)
+                courseColor = 'rgb(66, 66, 66)'  # black color
+
+                # draw the message on the background
+                w, h = draw.textsize(courseDate, font=fontDate)
+
+                draw.text((x-(w/2), y), courseDate,
+                          fill=courseColor, font=fontDate)
+
+                # save the edited image
+
+                pdfPath = path+'\generatedCertificate\paidSession\internshipCourse\\' + \
+                    certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
+
+                image.save(r''+pdfPath)
 
             elif(courseType == 'T-SIP'):
                 # print('T-SIP')
@@ -457,7 +541,8 @@ def sendEmail():
                 pdfPath = path+'\generatedCertificate\paidSession\webinar\\' + \
                     certiNum+str(int(certiNumVal)+i)+" "+name[i]+'.jpg'
             elif(courseType == 'Internship'):
-                print('internship')
+                pdfPath = path+'\generatedCertificate\paidSession\internshipCourse\\' + \
+                    certiNum+str(int(certiNumVal)+i)+" "+name[i]+'.jpg'
             elif(courseType == 'T-SIP'):
                 pdfPath = path+'\generatedCertificate\paidSession\\tsip\\' + \
                     certiNum+str(int(certiNumVal)+i)+" "+name[i]+'.jpg'
@@ -472,19 +557,19 @@ def sendEmail():
         msg['To'] = toaddr
         if(courseType != 'T-SIP'):
 
-            msg['Subject'] = "Certification for completion of {} {} successfully at Teckat {}".format(
-                numDays, courseType, certifiedAt)
+            msg['Subject'] = "Certification for completion of {} successfully at Teckat {}".format(
+                courseType, certifiedAt)
             body = '''
 Dear {},
 
-We hereby congratulate you for the completion of {} {} successfully.
+We hereby congratulate you for the completion of {} successfully.
 
 We hereby certify you with {} for completion of course.
 
 We wish to see you in further sessions.
 
 Wishing you a good health.
-Stay Home and Utilitize your lockdown period to achieve more.
+Stay Home and Utilize your lockdown period to achieve more.
 
 
 Your review is highly essential, share your review through the below link.
@@ -507,7 +592,7 @@ Jamshedpur, Jharkhand
 https://teckat.com
 
 
-        '''.format(name[i], numDays, courseType, certificationType)
+        '''.format(name[i], courseType, certificationType)
         elif(courseType == 'T-SIP'):
             msg['Subject'] = "Mail regarding certificate felicitation for successful completion of T-SIP 1.O"
             body = '''
