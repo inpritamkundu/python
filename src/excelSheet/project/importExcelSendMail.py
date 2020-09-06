@@ -16,7 +16,7 @@ import time
 
 
 root = tk.Tk()
-root.geometry("1536x720")
+root.geometry("1536x1020")
 width = root.winfo_screenwidth()
 
 fontsizeData = font.Font(size=15)
@@ -98,7 +98,7 @@ def sendEmail():
     for i in range(len(name)):
         separate = name[i].split()
         if(i % 30 == 0 and i != 0):
-            time.sleep(300)
+            time.sleep(400)
 
         fromaddr = "noreply@teckat.com"
         toaddr = email[i]
@@ -107,13 +107,19 @@ def sendEmail():
         msg['To'] = toaddr
 
         if(tsipStatus == 'T-SIP 2.0'):
-            msg['Subject'] = "UPDATE REGARDING INCENTIVE EARNED IN FIRST BONUS WEEK"
+            msg['Subject'] = "HIP! HIP! HURRAY! - Here you go with the fourth contest in this Internship."
 
         elif(tsipStatus == 'T-SIP 3.0'):
             if(mailStatus == 'Thank you for submitting application'):
                 msg['Subject'] = "Thank you for submitting your application at “T-SIP 3.0”"
             elif(mailStatus == 'application under review'):
                 msg['Subject'] = "YOUR APPLICATION IS UNDER REVIEW - YOU CAN MAIL US IF YOU ARE HAVING ANY INTERROGATION"
+            elif(mailStatus == 'Result Declaration'):
+                msg['Subject'] = "Congratulations! You are Selected at T-SIP 3.0 - Go through the mail for further information."
+            elif(mailStatus == 'Payment referral generate link'):
+                msg['Subject'] = "READY! STEADY! AND GO! - Here you go with the first Incentive  earning Hours"
+            elif(mailStatus == 'Bonus Hours'):
+                msg['Subject'] = "FREE! FREE! FREE! - ASK YOUR FRIENDS AND COLLEAGUES TO REGISTER FOR THE EVENT (GET E-CERTIFICATION)"
 #         body = '''
 
 # Dear {},
@@ -167,218 +173,354 @@ def sendEmail():
 <div>
     <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
         <div>
-            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
-                Dear {},
-                <br>
-            </span>
-        </div>
-        <div>
-            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
-                There are certain update that has been done on your payment link.&nbsp;
-                <br>
-            </span>
-        </div>
-        <div>
-            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
-                Your updated payment link has been attached in this mail itself.
-                <br>
-            </span>
-        </div>
-        <div>
-            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
-                Your previous enrollment details has been shifted to this link. You will soon receive a mail with your incentives you earned during bonus week-1.
-                <br>
-            </span>
-        </div>
-        <div>
-            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
-                <br>
-            </span>
-        </div>
-        <div>
-            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
-                The previous link has been deactivated from now onward.&nbsp;
-                <br>
-            </span>
-        </div>
-        <div>
-            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
-                So, kindly use the links attached below for further enrollment.
-            </span>
-            <br>
-        </div>
-        <div>
-            <br>
-        </div>
-        <p style="line-height: 1.38;margin-top: 0.0pt;margin-bottom: 0.0pt;" dir="ltr">
-            <span class="highlight" style="background-color:transparent">
-                <span class="colour" style="color:rgb(0, 0, 0)">
-                    <span class="font" style="font-family:Arial">
-                        <span class="size" style="font-size:10.6667px">
-                            1. Copy the content written below and send it to all your friends.
-                        </span>
-                    </span>
-                </span>
-            </span>
-            <br>
-        </p>
-        <div dir="ltr">
-            <span class="highlight" style="background-color:transparent">
-                <span class="colour" style="color:rgb(0, 0, 0)">
-                    <span class="font" style="font-family:Arial">
-                        <span class="size" style="font-size:10.6667px">
-                            ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                        </span>
-                    </span>
-                </span>
-            </span>
-            <span class="size" style="font-size:10.6667px">
-                <br>
-            </span>
-        </div>
-        <p style="line-height: 1.38;margin-top: 0.0pt;margin-bottom: 0.0pt;" dir="ltr">
-            <span class="highlight" style="background-color:transparent">
-                <span class="colour" style="color:rgb(0, 0, 0)">
-                    <span class="font" style="font-family:Arial">
-                        <span class="size" style="font-size:10.6667px">
-                            TECKAT WEBINAR SERIES- 3.0 is ready to launch the most trending and demanding courses that will give you a right platform to learn and develop projects easily.
-                        </span>
-                    </span>
-                </span>
-            </span>
-            <span class="size" style="font-size:10.6667px">
-                <br>
-            </span>
-        </p>
-        <p style="line-height: 1.38;margin-top: 0.0pt;margin-bottom: 0.0pt;" dir="ltr">
-            <span class="highlight" style="background-color:transparent">
-                <span class="colour" style="color:rgb(0, 0, 0)">
-                    <span class="font" style="font-family:Arial">
-                        <span class="size" style="font-size:10.6667px">
-                            Enroll Now-
-                        </span>
-                    </span>
-                </span>
-            </span>
-            <br>
-        </p>
-        <div dir="ltr">
-            <span class="highlight" style="background-color:transparent">
-                <span class="colour" style="color:rgb(0, 0, 0)">
-                    <span class="font" style="font-family:Arial">
-                        <span class="size" style="font-size:10.6667px">
-                            <span class="highlight" style="background-color:transparent">
-                                <span class="font" style="font-family:Arial">
-                                    <span class="size" style="font-size:10.6667px">
-                                        <span class="colour" style="color:rgb(0, 0, 0)">
-                                            Link 1-&nbsp; {}
-                                            <br>
-                                            Link 2-&nbsp; {}
-                                            <br>
-                                            Link 3-&nbsp; {}
-                                        </span>
-                                    </span>
-                                </span>
-                            </span>
-                        </span>
-                    </span>
-                </span>
-            </span>
-            <span class="size" style="font-size:10.6667px">
-                <br>
-            </span>
-        </div>
-        <p style="line-height: 1.38;margin-top: 0.0pt;margin-bottom: 0.0pt;" dir="ltr">
-            <span class="highlight" style="background-color:transparent">
-                <span class="colour" style="color:rgb(255, 0, 0)">
-                    <b>
-                        <span class="font" style="font-family:Arial">
-                            <span class="size" style="font-size:10.6667px">
-                                *USP’s you get-*
-                            </span>
-                        </span>
-                    </b>
-                </span>
-            </span>
-            <span class="size" style="font-size:10.6667px">
-                <br>
-            </span>
-        </p>
-        <p style="line-height: 1.38;margin-top: 0.0pt;margin-bottom: 0.0pt;" dir="ltr">
-            <span class="highlight" style="background-color:transparent">
-                <span class="font" style="font-family:Arial">
-                    <span class="size" style="font-size:10.6667px">
-                        <span class="colour" style="color:rgb(0, 0, 0)">
-                            Affordable price, ISO certification, Regular doubt sessions, Recorded video links
-                        </span>
-                    </span>
-                </span>
-            </span>
-            <span class="colour" style="color:rgb(0, 0, 0)">
-                <br>
-            </span>
-        </p>
-        <div dir="ltr">
-            <br>
-        </div>
-        <div dir="ltr">
-            <span class="highlight" style="background-color:transparent">
-                <span class="font" style="font-family:Arial">
-                    <span class="size" style="font-size:10.6667px">
-                        <span class="colour" style="color:rgb(0, 0, 0)">
-                            ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                        </span>
-                    </span>
-                </span>
-            </span>
-            <span class="colour" style="color:rgb(0, 0, 0)">
-                <br>
-            </span>
-        </div>
-        <div dir="ltr">
-            <span class="colour" style="color:rgb(0, 0, 0)">
-                <br>
-            </span>
-        </div>
-        <div dir="ltr">
-            <span class="size" style="font-size:10.6667px">
-                <span class="colour" style="color:rgb(0, 0, 0)">
-                    <br>
-                </span>
-            </span>
-        </div>
-        <p style="line-height: 1.38;margin-top: 0.0pt;margin-bottom: 0.0pt;" dir="ltr">
-            <span class="highlight" style="background-color:transparent">
-                <span class="font" style="font-family:Arial">
-                    <span class="size" style="font-size:10.6667px">
-                        <span class="colour" style="color:rgb(0, 0, 0)">
-                            2. You can also share the same content directly on whatsapp by clicking on the button bellow-
-                        </span>
-                    </span>
-                </span>
-            </span>
-            <br>
-        </p>
-        <div dir="ltr">
-            <br>
-        </div>
-        <div>
-            <a href="https://wa.me/?text=TECKAT%20WEBINAR%20SERIES-%203.0%20is%20ready%20to%20launch%20the%20most%20trending%20and%20demanding%20courses%20that%20will%20give%20you%20a%20right%20platform%20to%20learn%20and%20develop%20projects%20easily.%0A%0AEnroll%20Now-%0A%0ALink%201-%20{}%0ALink%202-%20{}%0ALink%203-%20{}%0A%0A%2AUSP%E2%80%99s%20you%20get-%2A%0AAffordable%20price%2C%20ISO%20certification%2C%20Regular%20doubt%20sessions%2C%20Recorded%20video%20links" style="background-color:#25d366;border:1px solid #128c7e;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;">
-                Share on WhatsApp
-            </a>
-            <br>
-        </div>
-        <div>
-            <br>
-        </div>
-        <div>
-            <br>
-        </div>
-        <div>
-            <br>
-        </div>
-        <div>
-            <br>
+            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                <div>
+                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                        <div>
+                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                <div>
+                                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                        <div>
+                                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                <div>
+                                                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                        <div>
+                                                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                                <div>
+                                                                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                                        <div>
+                                                                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                                                <div>
+                                                                                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                                                        <div>
+                                                                                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        Dear {},
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        WELCOME TO TECKAT STUDENT INTERN PARTNER
+                                                                                                        <span class="size" style="font-size:16px">
+                                                                                                            &nbsp;2
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <span class="font" style="font-family:serif, sans-serif">
+                                                                                                        <span class="size" style="font-size:16px">
+                                                                                                            .0
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        <span class="colour" style="color:rgb(0, 0, 153)">
+                                                                                                            This time you have all the opportunities to earn huge incentives, rewards, Teckat t-shirts, special certifications and many more.
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        <span class="colour" style="color:rgb(0, 0, 153)">
+                                                                                                            This is your second target that you have to achieve.
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        <span class="colour" style="color:rgb(0, 0, 153)">
+                                                                                                            This is all about workshop contest organised by Teckat on various technologies and marketing fields.
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        <b>
+                                                                                                            <span class="size" style="font-size:10.6667px">
+                                                                                                                DURATION OF THE CONTEST&nbsp;
+                                                                                                            </span>
+                                                                                                            -&nbsp;
+                                                                                                        </b>
+                                                                                                        From
+                                                                                                        <b>
+                                                                                                            Today
+                                                                                                        </b>
+                                                                                                        till&nbsp;&nbsp;
+                                                                                                    </span>
+                                                                                                    <span class="size" style="font-size: 16px">
+                                                                                                        <span class="font" style="font-family: serif, sans-serif;">
+                                                                                                            <b>
+                                                                                                                21&nbsp;st
+                                                                                                            </b>
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <b>
+                                                                                                        <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                            &nbsp;August,
+                                                                                                            <span class="size" style="font-size:16px">
+                                                                                                                2020
+                                                                                                            </span>
+                                                                                                            (
+                                                                                                        </span>
+                                                                                                        <span class="font" style="font-family:serif, sans-serif">
+                                                                                                            <span class="size" style="font-size:16px">
+                                                                                                                12
+                                                                                                            </span>
+                                                                                                        </span>
+                                                                                                        <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                            Midnight)
+                                                                                                        </span>
+                                                                                                    </b>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        <b>
+                                                                                                            <span class="size" style="font-size:16px">
+                                                                                                                <span class="colour" style="color:rgb(0, 0, 153)">
+                                                                                                                    <u>
+                                                                                                                        What shall you do?
+                                                                                                                    </u>
+                                                                                                                </span>
+                                                                                                            </span>
+                                                                                                        </b>
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <ul dir="ltr">
+                                                                                                    <li>
+                                                                                                        <span>
+                                                                                                            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                                <span class="colour" style="color:rgb(204, 0, 0)">
+                                                                                                                    You simply have to circulate it among your friends and colleagues through WhatsApp, Facebook, Instagram, to various groups, etc….
+                                                                                                                </span>
+                                                                                                            </span>
+                                                                                                        </span>
+                                                                                                        <br>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                                <div>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        <b>
+                                                                                                            <span class="size" style="font-size:16px">
+                                                                                                                <span class="colour" style="color:rgb(0, 0, 153)">
+                                                                                                                    <u>
+                                                                                                                        What will you get ?
+                                                                                                                    </u>
+                                                                                                                </span>
+                                                                                                            </span>
+                                                                                                        </b>
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <ul dir="ltr">
+                                                                                                    <li>
+                                                                                                        <span>
+                                                                                                            <span class="colour" style="color:rgb(204, 0, 0)">
+                                                                                                                <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                                    Every time your friend registers for any of the courses- you will add an incentive of
+                                                                                                                </span>
+                                                                                                                <span class="font" style="font-family:serif, sans-serif">
+                                                                                                                    15%
+                                                                                                                </span>
+                                                                                                                <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                                    &nbsp;on each successful enrollment.
+                                                                                                                </span>
+                                                                                                            </span>
+                                                                                                            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                            </span>
+                                                                                                        </span>
+                                                                                                        <br>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                                <div>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span class="font" style="font-family:serif, sans-serif">
+                                                                                                        <b>
+                                                                                                            1
+                                                                                                        </b>
+                                                                                                    </span>
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        <b>
+                                                                                                            .
+                                                                                                        </b>
+                                                                                                        You can share the content below (
+                                                                                                        <b>
+                                                                                                            just copy and paste the share part
+                                                                                                        </b>
+                                                                                                        ) to your friends and colleagues through WhatsApp, Facebook and other mediums. Encourage them to enroll in the courses they want to.
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        <b>
+                                                                                                            Share (Copy and Paste )
+                                                                                                        </b>
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        *Lock down can be useful and Skillful for Learners and Achievers, grab the opportunity to learn in the live sessions for anything you enroll for-*&nbsp;
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        Enroll yourself in different *WORKSHOPS*, *WEBINARS* and *INTERNSHIP* at Teckat in the field of *ENGINEERING*, *TECHNOLOGY*, *MARKETING*, *DESIGNING*, *DEVELOPMENT* at Teckat Webinar Series-
+                                                                                                    </span>
+                                                                                                    <span class="font" style="font-family:serif, sans-serif">
+                                                                                                        3.0.
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    *What You Get?*
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    1. Live Session throughout the Webinar
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    2. Recorded link of each session- lifetime access
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    3. ISO Certification- Get ISO Certification
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    4. Doubt Sessions- 15 minutes before each session and in mid of the session.
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    5. Live projects implementation - Complete guidance from Scratch.
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    *Just at Rs 149/-*
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        HERE IS THE LINK TO REGISTER IN ANY OF THE WEBINAR YOU WANT TO -
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div style="line-height: 1.5;">
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        *Link to Register*- {}
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span class="font" style="font-family:serif, sans-serif">
+                                                                                                        <b>
+                                                                                                            2
+                                                                                                        </b>
+                                                                                                    </span>
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        <b>
+                                                                                                            .
+                                                                                                        </b>
+                                                                                                        &nbsp; You can also share the details directly on WhatsApp
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <div>
+                                                                                                        <br>
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                        <a style="background-color: rgb(37,211,102);border: 1.0px solid rgb(18,140,126);border-radius: 4.0px;color: rgb(255,255,255);display: inline-block;font-family: sans-serif;font-size: 13.0px;font-weight: bold;line-height: 40.0px;text-align: center;text-decoration: none;width: 200.0px;" href="https://wa.me/?text=%2ALock%20down%20can%20be%20useful%20and%20Skillful%20for%20Learners%20and%20Achievers%2C%20grab%20the%20opportunity%20to%20learn%20in%20the%20live%20sessions%20for%20anything%20you%20enroll%20for-%2A%C2%A0%0A%0AEnroll%20yourself%20in%20different%20%2AWORKSHOPS%2A%2C%20%2AWEBINARS%2A%20and%20%2AINTERNSHIP%2A%20at%20Teckat%20in%20the%20field%20of%20%2AENGINEERING%2A%2C%20%2ATECHNOLOGY%2A%2C%20%2AMARKETING%2A%2C%20%2ADESIGNING%2A%2C%20%2ADEVELOPMENT%2A%20at%20Teckat%20Webinar%20Series-%203.0.%0A%0A%2AWhat%20You%20Get%3F%2A%0A%0A1.%20Live%20Session%20throughout%20the%20Webinar%0A%0A2.%20Recorded%20link%20of%20each%20session-%20lifetime%20access%0A%0A3.%20ISO%20Certification-%20Get%20ISO%20Certification%0A%0A4.%20Doubt%20Sessions-%2015%20minutes%20before%20each%20session%20and%20in%20mid%20of%20the%20session.%0A%0A5.%20Live%20projects%20implementation%20-%20Complete%20guidance%20from%20Scratch.%0A%0A%2AJust%20at%20Rs%20149%2F-%2A%0A%0AHERE%20IS%20THE%20LINK%20TO%20REGISTER%20IN%20ANY%20OF%20THE%20WEBINAR%20YOU%20WANT%20TO%20-%0A%0A%2ALink%20to%20Register%2A-%C2%A0%C2%A0{}%0A" target="_blank">
+                                                                                                            Share on WhatsApp
+                                                                                                        </a>
+                                                                                                        <br>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                                                                        We will intimate you with the incentives earned by you in the end of contest through mail.
+                                                                                                    </span>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <br>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div>
@@ -482,7 +624,7 @@ def sendEmail():
                                                         w:
                                                     </b>
                                                 </span>
-                                                <a href="http://teckat.com/" target="_blank" style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none">
+                                                <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="http://teckat.com/" target="_blank">
                                                     <span style="color:rgb(0, 0, 0)" class="colour">
                                                         <span style="font-family:Arial, sans-serif" class="font">
                                                             <span style="font-size: 10pt; box-sizing: border-box;" class="size">
@@ -516,15 +658,15 @@ def sendEmail():
                                     <tr class="ng-scope" style="box-sizing: border-box">
                                         <td valign="bottom" style="box-sizing: border-box; padding: 5px 0px 0px 10px; font-size: 10pt; font-family: Arial, sans-serif; vertical-align: bottom">
                                             <span class="ng-scope" style="box-sizing: border-box">
-                                                <a href="https://www.facebook.com/in.teckat/" target="_blank" style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none">
+                                                <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="https://www.facebook.com/in.teckat/" target="_blank">
                                                     <img height="19" border="0" width="19" alt="facebook icon" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/fb.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px">
                                                 </a>
                                                 &nbsp;
-                                                <a href="https://www.linkedin.com/company/teckat-service-pvt-ltd/?viewAsMember=true" target="_blank" style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none">
+                                                <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="https://www.linkedin.com/company/teckat-service-pvt-ltd/?viewAsMember=true" target="_blank">
                                                     <img height="19" border="0" width="19" alt="linkedin icon" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/ln.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px">
                                                 </a>
                                                 &nbsp;
-                                                <a href="https://www.instagram.com/india.teckat/" target="_blank" style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none">
+                                                <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="https://www.instagram.com/india.teckat/" target="_blank">
                                                     <img height="19" border="0" width="19" alt="instagram icon" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/it.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px">
                                                 </a>
                                                 &nbsp;
@@ -538,6 +680,86 @@ def sendEmail():
                     </tr>
                 </tbody>
             </table>
+            <div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+        <div>
+            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                <div>
+                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                        <div>
+                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                <div id="x_1542524513Zm-_Id_-Sgn">
+                                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                        <div>
+                                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                <div>
+                                                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                        <div>
+                                                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                                <div>
+                                                                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                                        <div>
+                                                                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                                                <div>
+                                                                                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                                                        <div>
+                                                                                            <div>
+                                                                                                <br>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div>
+                                                                                            <br>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <br>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div>
+                                                                            <br>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <br>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <br>
+                </div>
+            </div>
         </div>
         <div>
             <br>
@@ -549,10 +771,11 @@ def sendEmail():
 </div>
 
 
+
   </body>
 </html>
 
-        '''.format(separate[0], strLink1, strLink2, strLink3, strLink1, strLink2, strLink3)
+        '''.format(separate[0], strLink2, strLink2)
 
             elif(generatePaymentLink == 0):
 
@@ -808,6 +1031,18 @@ def sendEmail():
         '''.format(separate[0])
 
         if(tsipStatus == 'T-SIP 3.0'):
+
+            if(generatePaymentLink == 1):
+                print(separate)
+                strLink1 = link[0][0]+'?referral=TSIP03' + \
+                    separate[0][0:1]+separate[1][0:1]+str(tsipId[i])
+                strLink2 = link[0][1]+'?referral=TSIP03' + \
+                    separate[0][0:1]+separate[1][0:1]+str(tsipId[i])
+                strLink3 = link[0][2]+'?referral=TSIP03' + \
+                    separate[0][0:1]+separate[1][0:1]+str(tsipId[i])
+                print(strLink1)
+                print(strLink2)
+                print(strLink3)
 
             #  mail status check
             if(mailStatus == 'Thank you for submitting application'):
@@ -1908,6 +2143,1504 @@ def sendEmail():
 </html>
                 '''.format(separate[0], separate[0], separate[0])
 
+            elif(mailStatus == 'Result Declaration'):
+
+                html = '''
+<html>
+  <head></head>
+  <body>
+
+
+<div>
+    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+        <div>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                Dear {},
+                <br>
+            </span>
+        </div>
+        <div>
+            <span class="colour" style="color:rgb(0, 0, 153)">
+                <b>
+                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                        CONGRATULATIONS! You are selected for T-SIP
+                    </span>
+                    <span class="font" style="font-family:serif, sans-serif">
+                        3.0
+                    </span>
+                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                        Internship.
+                    </span>
+                </b>
+            </span>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                <br>
+            </span>
+        </div>
+        <div>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                We welcome you to Teckat family. Hurray!
+            </span>
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                GET READY FOR
+            </span>
+            <span class="font" style="font-family:serif, sans-serif">
+                45
+            </span>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                DAYS INTERNSHIP AT TECKAT
+            </span>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                "
+                <span class="colour" style="color:rgb(204, 0, 0)">
+                    <b>
+                        BE THE FACE OF CAMPUS AND HELP YOUR FRIENDS TO GET THE RIGHT KNOWLEDGE AND SKILLS
+                    </b>
+                    &nbsp;
+                </span>
+                "
+            </span>
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                <b>
+                    <u>
+                        WHAT YOU GET ONCE YOUR INTERNSHIP IS COMPLETED?
+                    </u>
+                </b>
+            </span>
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family:serif, sans-serif">
+                1.
+            </span>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                Incentives (
+                <span class="colour" style="color:rgb(0, 0, 102)">
+                    Stipend Based
+                </span>
+                )
+            </span>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family:serif, sans-serif">
+                2
+            </span>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                . Special Certifications (
+                <span class="colour" style="color:rgb(0, 0, 102)">
+                    Performance Based
+                </span>
+                )
+            </span>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family:serif, sans-serif">
+                3
+            </span>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                . Internship Certificate
+            </span>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family:serif, sans-serif">
+                4
+            </span>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                . Rewards (
+                <span class="colour" style="color:rgb(0, 0, 102)">
+                    Performance Based
+                </span>
+                )
+            </span>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family:serif, sans-serif">
+                5
+            </span>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                . Teckat T-Shirt (
+                <span class="colour" style="color:rgb(0, 0, 102)">
+                    Performance Based
+                </span>
+                )
+            </span>
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                <b>
+                    INTERNSHIP DURATION:-&nbsp;
+                </b>
+            </span>
+            <span class="font" style="font-family:serif, sans-serif">
+                <b>
+                    <span class="size" style="font-size:16px">
+                        07/08/2020 - 20/09/2020
+                    </span>
+                </b>
+            </span>
+            <br>
+        </div>
+        <div>
+            It's time to join us with high motivation and dedication to work and achieve success at high heights.
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div>
+            You can read the guidelines
+            <span class="colour" style="color:rgb(0, 0, 153)">
+                <b>
+                    <u>
+                        <a href="https://rethink.software/api/v2/connectedApps.requestObject/7df2a8d8-781c-4e00-9e2b-1db00dfdbe01?connectedAppsId=65398&amp;key=uploads%2Fpritam-kundu%2Fdrive-personal-sfDQd9d%2Fguidelines-for-t-sip-3.0.pdf-CLQu5cq%2FGuidelines%2520For%2520T-SIP%25203.0.pdf&amp;itemsOriginalId=24e89c9e-978c-4268-a3cb-48a4b765d500" target="_blank">
+                            here
+                        </a>
+                    </u>
+                </b>
+            </span>
+            for further queries on what comes to your mind.
+            <br>
+        </div>
+        <div>
+            We will intimate you soon with an exciting start of the Internship at Teckat Student Intern Partner- 3.0
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div>
+            All the best!
+            <br>
+        </div>
+        <div>
+            Stay Updated. Stay focused.
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+    </div>
+    <div>
+        <div>
+            <table cellpadding="0" cellspacing="0" class="ng-scope" style="box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; width: 525px; font-size: 11pt; font-family: Arial, sans-serif">
+                <tbody style="box-sizing: border-box">
+                    <tr style="box-sizing: border-box">
+                        <td width="125" valign="top" rowspan="6" class="ng-scope" style="box-sizing: border-box; padding: 0px 10px 0px 0px; font-size: 10pt; font-family: Arial, sans-serif; border-right: 1px solid rgb(251, 99, 3); width: 125px; vertical-align: top">
+                            <br>
+                        </td>
+                        <td style="box-sizing: border-box; padding: 0px 0px 0px 10px">
+                            <table cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; background-color: transparent">
+                                <tbody style="box-sizing: border-box">
+                                    <tr style="box-sizing: border-box">
+                                        <td valign="top" style="box-sizing: border-box; padding: 0px 0px 5px 10px; font-size: 10pt; color: rgb(0, 121, 172); font-family: Arial, sans-serif; width: 400px; vertical-align: top">
+                                            THANKS &amp; REGARDS
+                                            <br>
+                                        </td>
+                                    </tr>
+                                    <tr style="box-sizing: border-box">
+                                        <td valign="top" style="box-sizing: border-box; padding: 5px 0px 5px 10px; font-size: 10pt; color: rgb(68, 68, 68); font-family: Arial, sans-serif; vertical-align: top; line-height: 17px">
+                                            <span class="ng-scope" style="box-sizing: border-box">
+                                                <span style="color: rgb(251, 99, 3); box-sizing: border-box;" class="colour">
+                                                    <b>
+                                                        a:
+                                                        <span>
+                                                            &nbsp;
+                                                        </span>
+                                                    </b>
+                                                </span>
+                                                <span style="color:rgb(0, 0, 0)" class="colour">
+                                                    <span style="font-family:Arial, sans-serif" class="font">
+                                                        <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                            Teckat Services Private Limited
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                                <span>
+                                                    &nbsp;
+                                                </span>
+                                                <span style="color:rgb(0, 0, 0)" class="colour">
+                                                    <span style="font-family:Arial, sans-serif" class="font">
+                                                        <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                            <span class="ng-scope" style="box-sizing: border-box">
+                                                                |
+                                                                <span>
+                                                                    &nbsp;
+                                                                </span>
+                                                            </span>
+                                                            14, Sidhgora Main Market, Sidhgora, Jamshedpur, Jharkhand
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                                <span>
+                                                    &nbsp;
+                                                </span>
+                                                <span style="color:rgb(0, 0, 0)" class="colour">
+                                                    <span style="font-family:Arial, sans-serif" class="font">
+                                                        <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                            <span class="ng-scope" style="box-sizing: border-box">
+                                                                |
+                                                                <span>
+                                                                    &nbsp;
+                                                                </span>
+                                                            </span>
+                                                            831009
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                                <br style="box-sizing: border-box">
+                                                <span style="color: rgb(251, 99, 3); box-sizing: border-box;" class="colour">
+                                                    <b>
+                                                        e:
+                                                    </b>
+                                                </span>
+                                                <span style="color:rgb(0, 0, 0)" class="colour">
+                                                    <span style="font-family:Arial, sans-serif" class="font">
+                                                        <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                            <span>
+                                                                &nbsp;
+                                                            </span>
+                                                            <a href="mailto:support@teckat.com" target="_blank">
+                                                                support@teckat.com
+                                                            </a>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span>
+                                                &nbsp;
+                                            </span>
+                                            <span class="ng-scope" style="box-sizing: border-box">
+                                                <span class="ng-scope" style="box-sizing: border-box">
+                                                    |
+                                                    <span>
+                                                        &nbsp;
+                                                    </span>
+                                                </span>
+                                                <span style="color: rgb(251, 99, 3); box-sizing: border-box;" class="colour">
+                                                    <b>
+                                                        w:
+                                                    </b>
+                                                </span>
+                                                <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="http://teckat.com/" target="_blank">
+                                                    <span style="color:rgb(0, 0, 0)" class="colour">
+                                                        <span style="font-family:Arial, sans-serif" class="font">
+                                                            <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                <span>
+                                                                    &nbsp;
+                                                                </span>
+                                                                teckat.com
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                                <br style="box-sizing: border-box">
+                                                <span style="color: rgb(251, 99, 3); box-sizing: border-box;" class="colour">
+                                                    <b>
+                                                        m:
+                                                    </b>
+                                                </span>
+                                                <span style="color:rgb(0, 0, 0)" class="colour">
+                                                    <span style="font-family:Arial, sans-serif" class="font">
+                                                        <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                            <span>
+                                                                &nbsp;
+                                                            </span>
+                                                            9337704495
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr class="ng-scope" style="box-sizing: border-box">
+                                        <td valign="bottom" style="box-sizing: border-box; padding: 5px 0px 0px 10px; font-size: 10pt; font-family: Arial, sans-serif; vertical-align: bottom">
+                                            <span class="ng-scope" style="box-sizing: border-box">
+                                                <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="https://www.facebook.com/in.teckat/" target="_blank">
+                                                    <img height="19" border="0" width="19" alt="facebook icon" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/fb.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px">
+                                                </a>
+                                                &nbsp;
+                                                <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="https://www.linkedin.com/company/teckat-service-pvt-ltd/?viewAsMember=true" target="_blank">
+                                                    <img height="19" border="0" width="19" alt="linkedin icon" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/ln.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px">
+                                                </a>
+                                                &nbsp;
+                                                <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="https://www.instagram.com/india.teckat/" target="_blank">
+                                                    <img height="19" border="0" width="19" alt="instagram icon" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/it.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px">
+                                                </a>
+                                                &nbsp;
+                                            </span>
+                                            <br>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+        <div id="x_-158763297Zm-_Id_-Sgn">
+            <div>
+                <div>
+                    <table style="box-sizing: border-box;border-spacing: 0.0px;border-collapse: collapse;background-color: rgb(255,255,255);color: rgb(68,68,68);font-style: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-indent: 0.0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0.0px;width: 525.0px;font-size: 11.0pt;font-family: Arial, sans-serif;" class="x_-158763297ng-scope" cellspacing="0" cellpadding="0">
+                        <tbody style="box-sizing: border-box;">
+                            <tr style="box-sizing: border-box;">
+                                <td style="box-sizing: border-box;padding: 0.0px 0.0px 0.0px 10.0px;">
+                                    <table style="box-sizing: border-box;border-spacing: 0.0px;border-collapse: collapse;background-color: transparent;" cellspacing="0" cellpadding="0">
+                                        <tbody style="box-sizing: border-box;">
+                                            <tr style="box-sizing: border-box;" class="x_-158763297ng-scope">
+                                                <td style="box-sizing: border-box;padding: 5.0px 0.0px 0.0px 10.0px;font-size: 10.0pt;font-family: Arial, sans-serif;vertical-align: bottom;" valign="bottom">
+                                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                        <br>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                            <br>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                    <br>
+                </span>
+            </div>
+        </div>
+        <div>
+            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                <br>
+            </span>
+        </div>
+        <div>
+            <br>
+        </div>
+    </div>
+</div>
+<div>
+    <br>
+</div>
+
+
+
+  </body>
+</html>
+
+                '''.format(separate[0])
+
+            elif(mailStatus == 'Payment referral generate link'):
+
+                html = '''
+<html>
+  <head></head>
+  <body>
+
+
+<div>
+    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+        <div>
+            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                <div>
+                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                        <div>
+                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                <div style="line-height: 1.5;">
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        Dear {},
+                                    </span>
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        WELCOME TO TECKAT STUDENT INTERN PARTNER
+                                    </span>
+                                    <span class="font" style="font-family:serif, sans-serif">
+                                        3.0
+                                    </span>
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                    </span>
+                                    <br>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        <span class="colour" style="color:rgb(0, 0, 153)">
+                                            This time you have all the opportunities to earn huge incentives, rewards, Teckat t-shirts, special certifications and many more.
+                                        </span>
+                                    </span>
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        <span class="colour" style="color:rgb(0, 0, 153)">
+                                            This is your first target that you have to achieve.
+                                        </span>
+                                    </span>
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        <span class="colour" style="color:rgb(0, 0, 153)">
+                                            This is all about a training contest organised by Teckat on various technologies and marketing fields.
+                                        </span>
+                                    </span>
+                                    <br>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        <b>
+                                            <span class="size" style="font-size:10.6667px">
+                                                DURATION OF THE CONTEST&nbsp;
+                                            </span>
+                                            -&nbsp;
+                                        </b>
+                                        From
+                                        <b>
+                                            Today
+                                        </b>
+                                        till
+                                        <b>
+                                            9th August, 2020 (12 Midnight)
+                                        </b>
+                                    </span>
+                                    <br>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        <b>
+                                            <span class="size" style="font-size:16px">
+                                                <span class="colour" style="color:rgb(0, 0, 153)">
+                                                    <u>
+                                                        What shall you do?
+                                                    </u>
+                                                </span>
+                                            </span>
+                                        </b>
+                                    </span>
+                                    <br>
+                                </div>
+                                <ul dir="ltr">
+                                    <li>
+                                        <span>
+                                            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                <span class="colour" style="color:rgb(204, 0, 0)">
+                                                    You simply have to circulate it among your friends and colleagues through WhatsApp, Facebook, Instagram, to various groups, etc….
+                                                </span>
+                                            </span>
+                                        </span>
+                                        <br>
+                                    </li>
+                                </ul>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        <b>
+                                            <span class="size" style="font-size:16px">
+                                                <span class="colour" style="color:rgb(0, 0, 153)">
+                                                    <u>
+                                                        What will you get ?
+                                                    </u>
+                                                </span>
+                                            </span>
+                                        </b>
+                                    </span>
+                                    <br>
+                                </div>
+                                <ul dir="ltr">
+                                    <li>
+                                        <span>
+                                            <span class="colour" style="color:rgb(204, 0, 0)">
+                                                <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                    Every time your friend registers for any of the courses- you will add an incentive of Rs
+                                                </span>
+                                                <span class="font" style="font-family:serif, sans-serif">
+                                                    120/-
+                                                </span>
+                                                <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                                    on each successful enrollment.
+                                                </span>
+                                            </span>
+                                            <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                            </span>
+                                        </span>
+                                        <br>
+                                    </li>
+                                </ul>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <span class="font" style="font-family:serif, sans-serif">
+                                        <b>
+                                            1
+                                        </b>
+                                    </span>
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        <b>
+                                            .
+                                        </b>
+                                        You can share the content below (
+                                        <b>
+                                            just copy and paste the share part
+                                        </b>
+                                        ) to your friends and colleagues through WhatsApp, Facebook and other mediums. Encourage them to enroll in the courses they want to.
+                                    </span>
+                                    <br>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        <b>
+                                            Share (Copy and Paste )
+                                        </b>
+                                    </span>
+                                    <br>
+                                </div>
+                                <div>
+                                    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        *Lock down can be useful and Skillful for Learners and Achievers, grab the opportunity to learn in the live sessions for anything you enroll for-*&nbsp;
+                                    </span>
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        Enroll yourself in different *WORKSHOPS*, *WEBINARS* and *INTERNSHIP* at Teckat in the field of *ENGINEERING*, *TECHNOLOGY*, *MARKETING*, *DESIGNING*, *DEVELOPMENT* at Teckat Webinar Series-
+                                    </span>
+                                    <span class="font" style="font-family:serif, sans-serif">
+                                        3.0.
+                                    </span>
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    *What You Get?*
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    1. Live Session throughout the course Internship
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    2. Recorded link of each session- lifetime access
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    3. ISO Certification- Get Course Internship Certification
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    4. Doubt Sessions- 15 minutes before each session and in mid of the session.
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    5. Live projects implementation - Complete guidance from Scratch.
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        HERE IS THE LINK TO REGISTER IN ANY OF THE COURSE YOU WANT TO-
+                                    </span>
+                                    <br>
+                                </div>
+                                <div style="line-height: 1.5;">
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        *Link to Register*-&nbsp; &nbsp;{}
+                                    </span>
+                                    <br>
+                                </div>
+                                <div>
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                    </span>
+                                    <br>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <span class="font" style="font-family:serif, sans-serif">
+                                        <b>
+                                            2
+                                        </b>
+                                    </span>
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        <b>
+                                            .
+                                        </b>
+                                        &nbsp; You can also share the details directly on WhatsApp
+                                    </span>
+                                    <br>
+                                </div>
+                                <div>
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        <br>
+                                    </span>
+                                </div>
+                                <div>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                    <a style="background-color:#25d366;border:1px solid #128c7e;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;" href="https://wa.me/?text=%2ALock%20down%20can%20be%20useful%20and%20Skillful%20for%20Learners%20and%20Achievers%2C%20grab%20the%20opportunity%20to%20learn%20in%20the%20live%20sessions%20for%20anything%20you%20enroll%20for-%2A%C2%A0%0A%0AEnroll%20yourself%20in%20different%20%2AWORKSHOPS%2A%2C%20%2AWEBINARS%2A%20and%20%2AINTERNSHIP%2A%20at%20Teckat%20in%20the%20field%20of%20%2AENGINEERING%2A%2C%20%2ATECHNOLOGY%2A%2C%20%2AMARKETING%2A%2C%20%2ADESIGNING%2A%2C%20%2ADEVELOPMENT%2A%20at%20Teckat%20Webinar%20Series-%203.0.%0A%0A%2AWhat%20You%20Get%3F%2A%0A%0A1.%20Live%20Session%20throughout%20the%20course%20Internship%0A%0A2.%20Recorded%20link%20of%20each%20session-%20lifetime%20access%0A%0A3.%20ISO%20Certification-%20Get%20Course%20Internship%20Certification%0A%0A4.%20Doubt%20Sessions-%2015%20minutes%20before%20each%20session%20and%20in%20mid%20of%20the%20session.%0A%0A5.%20Live%20projects%20implementation%20-%20Complete%20guidance%20from%20Scratch.%0A%0AHERE%20IS%20THE%20LINK%20TO%20REGISTER%20IN%20ANY%20OF%20THE%20COURSE%20YOU%20WANT%20TO-%0A%0A%2ALink%20to%20Register%2A-%C2%A0{}" target="_blank">
+                                        Share on WhatsApp
+                                    </a>
+                                    <br>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <span class="font" style="font-family:georgia, &quot;times new roman&quot;, times, serif, sans-serif">
+                                        We will intimate you with the incentives earned by you in the end of contest through mail.
+                                    </span>
+                                    <br>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div id="x_-1779381906Zm-_Id_-Sgn">
+                                    <div>
+                                        <div>
+                                            <table style="box-sizing: border-box;border-spacing: 0.0px;border-collapse: collapse;background-color: rgb(255,255,255);color: rgb(68,68,68);font-style: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-indent: 0.0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0.0px;width: 525.0px;font-size: 11.0pt;font-family: Arial, sans-serif;" class="x_-1779381906ng-scope" cellspacing="0" cellpadding="0">
+                                                <tbody style="box-sizing: border-box;">
+                                                    <tr style="box-sizing: border-box;">
+                                                        <td style="box-sizing: border-box;padding: 0.0px 0.0px 0.0px 10.0px;">
+                                                            <table style="box-sizing: border-box;border-spacing: 0.0px;border-collapse: collapse;background-color: transparent;" cellspacing="0" cellpadding="0">
+                                                                <tbody style="box-sizing: border-box;">
+                                                                    <tr style="box-sizing: border-box;" class="x_-1779381906ng-scope">
+                                                                        <td style="box-sizing: border-box;padding: 5.0px 0.0px 0.0px 10.0px;font-size: 10.0pt;font-family: Arial, sans-serif;vertical-align: bottom;" valign="bottom">
+                                                                            <div id="Zm-_Id_-Sgn" data-zbluepencil-ignore="true">
+                                                                                <div>
+                                                                                    <div>
+                                                                                        <table cellpadding="0" cellspacing="0" class="ng-scope" style="box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; width: 525px; font-size: 11pt; font-family: Arial, sans-serif">
+                                                                                            <tbody style="box-sizing: border-box">
+                                                                                                <tr style="box-sizing: border-box">
+                                                                                                    <td width="125" valign="top" rowspan="6" class="ng-scope" style="box-sizing: border-box; padding: 0px 10px 0px 0px; font-size: 10pt; font-family: Arial, sans-serif; border-right: 1px solid rgb(251, 99, 3); width: 125px; vertical-align: top">
+                                                                                                        <br>
+                                                                                                    </td>
+                                                                                                    <td style="box-sizing: border-box; padding: 0px 0px 0px 10px">
+                                                                                                        <table cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; background-color: transparent">
+                                                                                                            <tbody style="box-sizing: border-box">
+                                                                                                                <tr style="box-sizing: border-box">
+                                                                                                                    <td valign="top" style="box-sizing: border-box; padding: 0px 0px 5px 10px; font-size: 10pt; color: rgb(0, 121, 172); font-family: Arial, sans-serif; width: 400px; vertical-align: top">
+                                                                                                                        THANKS &amp; REGARDS
+                                                                                                                        <br>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                <tr style="box-sizing: border-box">
+                                                                                                                    <td valign="top" style="box-sizing: border-box; padding: 5px 0px 5px 10px; font-size: 10pt; color: rgb(68, 68, 68); font-family: Arial, sans-serif; vertical-align: top; line-height: 17px">
+                                                                                                                        <span class="ng-scope" style="box-sizing: border-box">
+                                                                                                                            <span style="color: rgb(251, 99, 3); box-sizing: border-box;" class="colour">
+                                                                                                                                <b>
+                                                                                                                                    a:
+                                                                                                                                    <span>
+                                                                                                                                        &nbsp;
+                                                                                                                                    </span>
+                                                                                                                                </b>
+                                                                                                                            </span>
+                                                                                                                            <span style="color:rgb(0, 0, 0)" class="colour">
+                                                                                                                                <span style="font-family:Arial, sans-serif" class="font">
+                                                                                                                                    <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                                                                                        Teckat Services Private Limited
+                                                                                                                                    </span>
+                                                                                                                                </span>
+                                                                                                                            </span>
+                                                                                                                            <span>
+                                                                                                                                &nbsp;
+                                                                                                                            </span>
+                                                                                                                            <span style="color:rgb(0, 0, 0)" class="colour">
+                                                                                                                                <span style="font-family:Arial, sans-serif" class="font">
+                                                                                                                                    <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                                                                                        <span class="ng-scope" style="box-sizing: border-box">
+                                                                                                                                            |
+                                                                                                                                            <span>
+                                                                                                                                                &nbsp;
+                                                                                                                                            </span>
+                                                                                                                                        </span>
+                                                                                                                                        14, Sidhgora Main Market, Sidhgora, Jamshedpur, Jharkhand
+                                                                                                                                    </span>
+                                                                                                                                </span>
+                                                                                                                            </span>
+                                                                                                                            <span>
+                                                                                                                                &nbsp;
+                                                                                                                            </span>
+                                                                                                                            <span style="color:rgb(0, 0, 0)" class="colour">
+                                                                                                                                <span style="font-family:Arial, sans-serif" class="font">
+                                                                                                                                    <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                                                                                        <span class="ng-scope" style="box-sizing: border-box">
+                                                                                                                                            |
+                                                                                                                                            <span>
+                                                                                                                                                &nbsp;
+                                                                                                                                            </span>
+                                                                                                                                        </span>
+                                                                                                                                        831009
+                                                                                                                                    </span>
+                                                                                                                                </span>
+                                                                                                                            </span>
+                                                                                                                            <br style="box-sizing: border-box">
+                                                                                                                            <span style="color: rgb(251, 99, 3); box-sizing: border-box;" class="colour">
+                                                                                                                                <b>
+                                                                                                                                    e:
+                                                                                                                                </b>
+                                                                                                                            </span>
+                                                                                                                            <span style="color:rgb(0, 0, 0)" class="colour">
+                                                                                                                                <span style="font-family:Arial, sans-serif" class="font">
+                                                                                                                                    <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                                                                                        <span>
+                                                                                                                                            &nbsp;
+                                                                                                                                        </span>
+                                                                                                                                        <a href="mailto:support@teckat.com" target="_blank">
+                                                                                                                                            support@teckat.com
+                                                                                                                                        </a>
+                                                                                                                                    </span>
+                                                                                                                                </span>
+                                                                                                                            </span>
+                                                                                                                        </span>
+                                                                                                                        <span>
+                                                                                                                            &nbsp;
+                                                                                                                        </span>
+                                                                                                                        <span class="ng-scope" style="box-sizing: border-box">
+                                                                                                                            <span class="ng-scope" style="box-sizing: border-box">
+                                                                                                                                |
+                                                                                                                                <span>
+                                                                                                                                    &nbsp;
+                                                                                                                                </span>
+                                                                                                                            </span>
+                                                                                                                            <span style="color: rgb(251, 99, 3); box-sizing: border-box;" class="colour">
+                                                                                                                                <b>
+                                                                                                                                    w:
+                                                                                                                                </b>
+                                                                                                                            </span>
+                                                                                                                            <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="http://teckat.com/" target="_blank">
+                                                                                                                                <span style="color:rgb(0, 0, 0)" class="colour">
+                                                                                                                                    <span style="font-family:Arial, sans-serif" class="font">
+                                                                                                                                        <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                                                                                            <span>
+                                                                                                                                                &nbsp;
+                                                                                                                                            </span>
+                                                                                                                                            teckat.com
+                                                                                                                                        </span>
+                                                                                                                                    </span>
+                                                                                                                                </span>
+                                                                                                                            </a>
+                                                                                                                            <br style="box-sizing: border-box">
+                                                                                                                            <span style="color: rgb(251, 99, 3); box-sizing: border-box;" class="colour">
+                                                                                                                                <b>
+                                                                                                                                    m:
+                                                                                                                                </b>
+                                                                                                                            </span>
+                                                                                                                            <span style="color:rgb(0, 0, 0)" class="colour">
+                                                                                                                                <span style="font-family:Arial, sans-serif" class="font">
+                                                                                                                                    <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                                                                                        <span>
+                                                                                                                                            &nbsp;
+                                                                                                                                        </span>
+                                                                                                                                        9337704495
+                                                                                                                                    </span>
+                                                                                                                                </span>
+                                                                                                                            </span>
+                                                                                                                        </span>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                <tr class="ng-scope" style="box-sizing: border-box">
+                                                                                                                    <td valign="bottom" style="box-sizing: border-box; padding: 5px 0px 0px 10px; font-size: 10pt; font-family: Arial, sans-serif; vertical-align: bottom">
+                                                                                                                        <span class="ng-scope" style="box-sizing: border-box">
+                                                                                                                            <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="https://www.facebook.com/in.teckat/" target="_blank">
+                                                                                                                                <img height="19" border="0" width="19" alt="facebook icon" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/fb.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px">
+                                                                                                                            </a>
+                                                                                                                            &nbsp;
+                                                                                                                            <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="https://www.linkedin.com/company/teckat-service-pvt-ltd/?viewAsMember=true" target="_blank">
+                                                                                                                                <img height="19" border="0" width="19" alt="linkedin icon" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/ln.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px">
+                                                                                                                            </a>
+                                                                                                                            &nbsp;
+                                                                                                                            <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="https://www.instagram.com/india.teckat/" target="_blank">
+                                                                                                                                <img height="19" border="0" width="19" alt="instagram icon" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/it.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px">
+                                                                                                                            </a>
+                                                                                                                            &nbsp;
+                                                                                                                        </span>
+                                                                                                                        <br>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                            </div>
+                            <div>
+                                <br>
+                            </div>
+                        </div>
+                        <div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div>
+            <br>
+        </div>
+    </div>
+</div>
+<div>
+    <br>
+</div>
+
+
+
+  </body>
+</html>
+
+                '''.format(separate[0], strLink3, strLink3)
+            elif(mailStatus == 'Bonus Hours'):
+
+                html = '''
+<html>
+  <head></head>
+  <body>
+
+
+
+<div>
+    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+        <div>
+            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                <div>
+                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                        <div>
+                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                <div>
+                                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                        <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                            <div>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                    Dear {},
+                                                </span>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                </span>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <b>
+                                                    <span class="size" style="font-size:16px">
+                                                        <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                            This is the best opportunity you can take and win a special certification on "Marketing Management".
+                                                        </span>
+                                                    </span>
+                                                </b>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                </span>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <span class="size" style="font-size:16px">
+                                                    <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                        You just have to share the details to as
+                                                    </span>
+                                                    <b>
+                                                        <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                            &nbsp;
+                                                        </span>
+                                                    </b>
+                                                    <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                        many contacts through Whatsapp, Facebook or Instagram,etc........
+                                                    </span>
+                                                </span>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                </span>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <span class="size" style="font-size:16px">
+                                                    <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                        Share the details below along with the Attachment and get as many enrollments...
+                                                    </span>
+                                                </span>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                </span>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <span class="size" style="font-size:16px">
+                                                    <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                        Remember, this is completely free of cost live session.
+                                                    </span>
+                                                </span>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                </span>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <span class="size" style="font-size:16px">
+                                                    <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                        1.
+                                                    </span>
+                                                </span>
+                                                <b>
+                                                    <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                        <span class="size" style="font-size: 14.666666666666666px">
+                                                            Share (Copy and Paste)
+                                                        </span>
+                                                    </span>
+                                                </b>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                    -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                </span>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                </span>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                    *Skills are only thing that takes you through all the good and bad experiences and you come ahead winning all those....*
+                                                </span>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                </span>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <br>
+            </div>
+        </div>
+        <div>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                A man who is an inspiration and a skilled personality who can help you reach all your target in life......
+            </span>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+            </span>
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                *One of the top CA with experience of around 11 years in various field of expertise. Connecting young minds and helping their start-up and innovative ideas grow at right time.*
+            </span>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+            </span>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                *CA. YASH MODI*
+            </span>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+            </span>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                *FOUNDER- YASH MODI AND ASSOCIATES.*
+            </span>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+            </span>
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                An initiative to bring such opportunities to your door and help you find the way to success....
+            </span>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+            </span>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                Live Session to be held on 3rd September 2020 at 3pm.
+            </span>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+            </span>
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                Connect with him Live on YouTube and find the best ever EXPERIENCE of knowledge and understanding.
+            </span>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+            </span>
+            <br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                *Register yourself and get ready to achieve the best.*
+            </span>
+            <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+            </span>
+            <br>
+        </div>
+        <div>
+            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                <div>
+                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                        <div>
+                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                <div>
+                                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                        <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                            <div>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                    Link-
+                                                </span>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                    &nbsp;{}
+                                                </span>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                    Use Referral - {}
+                                                </span>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                </span>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                    -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                </span>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                </span>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                    2.
+                                                    <b>
+                                                        You can also share on WhatsApp
+                                                    </b>
+                                                </span>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                    <b>
+                                                        ​
+                                                    </b>
+                                                </span>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                &nbsp; &nbsp;&nbsp;
+                                                <a style="background-color:#25d366;border:1px solid #128c7e;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;" href="https://wa.me/?text=%2ASkills%20are%20only%20thing%20that%20takes%20you%20through%20all%20the%20good%20and%20bad%20experiences%20and%20you%20come%20ahead%20winning%20all%20those....%2A%0A%0AA%20man%20who%20is%20an%20inspiration%20and%20a%20skilled%20personality%20who%20can%20help%20you%20reach%20all%20your%20target%20in%20life......%0A%0A%2AOne%20of%20the%20top%20CA%20with%20experience%20of%20around%2011%20years%20in%20various%20field%20of%20expertise.%20Connecting%20young%20minds%20and%20helping%20their%20start-up%20and%20innovative%20ideas%20grow%20at%20right%20time.%2A%0A%0A%2ACA.%20YASH%20MODI%2A%0A%2AFOUNDER-%20YASH%20MODI%20AND%20ASSOCIATES.%2A%0A%0AAn%20initiative%20to%20bring%20such%20opportunities%20to%20your%20door%20and%20help%20you%20find%20the%20way%20to%20success....%0ALive%20Session%20to%20be%20held%20on%203rd%20September%202020%20at%203pm.%0A%0AConnect%20with%20him%20Live%20on%20YouTube%20and%20find%20the%20best%20ever%20EXPERIENCE%20of%20knowledge%20and%20understanding.%0A%0A%2ARegister%20yourself%20and%20get%20ready%20to%20achieve%20the%20best.%2A%0ALink-%20%C2%A0{}%0AUse%20Referral%20-%20%20{}" target="_blank">
+                                                    WhatsApp
+                                                </a>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                &nbsp;
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                </span>
+                                                <span class="font" style="font-family: georgia, &quot;times new roman&quot;, times, serif, sans-serif;">
+                                                </span>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <br>
+                                            </div>
+                                            <div>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <table cellpadding="0" cellspacing="0" class="x_1563714547ng-scope" style="box-sizing: border-box;border-spacing: 0.0px;border-collapse: collapse;background-color: rgb(255,255,255);color: rgb(68,68,68);font-style: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-indent: 0.0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0.0px;width: 525.0px;font-size: 11.0pt;font-family: Arial, sans-serif;">
+                                                <tbody style="box-sizing: border-box;">
+                                                    <tr style="box-sizing: border-box;">
+                                                        <td style="box-sizing: border-box;padding: 0.0px 0.0px 0.0px 10.0px;">
+                                                            <table cellpadding="0" cellspacing="0" style="box-sizing: border-box;border-spacing: 0.0px;border-collapse: collapse;background-color: transparent;">
+                                                                <tbody style="box-sizing: border-box;">
+                                                                    <tr class="x_1563714547ng-scope" style="box-sizing: border-box;">
+                                                                        <td valign="bottom" style="box-sizing: border-box;padding: 5.0px 0.0px 0.0px 10.0px;font-size: 10.0pt;font-family: Arial, sans-serif;vertical-align: bottom;">
+                                                                            <div id="x_1587367836Zm-_Id_-Sgn">
+                                                                                <div>
+                                                                                    <div>
+                                                                                        <table cellpadding="0" cellspacing="0" class="x_1587367836ng-scope" style="box-sizing: border-box;border-spacing: 0.0px;border-collapse: collapse;background-color: rgb(255,255,255);color: rgb(68,68,68);font-style: normal;font-weight: 400;letter-spacing: normal;orphans: 2;text-indent: 0.0px;text-transform: none;white-space: normal;widows: 2;word-spacing: 0.0px;width: 525.0px;font-size: 11.0pt;font-family: Arial, sans-serif;">
+                                                                                            <tbody style="box-sizing: border-box;">
+                                                                                                <tr style="box-sizing: border-box;">
+                                                                                                    <td style="box-sizing: border-box;padding: 0.0px 0.0px 0.0px 10.0px;">
+                                                                                                        <table cellpadding="0" cellspacing="0" style="box-sizing: border-box;border-spacing: 0.0px;border-collapse: collapse;background-color: transparent;">
+                                                                                                            <tbody style="box-sizing: border-box;">
+                                                                                                                <tr class="x_1587367836ng-scope" style="box-sizing: border-box;">
+                                                                                                                    <td valign="bottom" style="box-sizing: border-box;padding: 5.0px 0.0px 0.0px 10.0px;font-size: 10.0pt;font-family: Arial, sans-serif;vertical-align: bottom;">
+                                                                                                                        <div id="Zm-_Id_-Sgn" data-zbluepencil-ignore="true">
+                                                                                                                            <div>
+                                                                                                                                <div>
+                                                                                                                                    <table cellpadding="0" cellspacing="0" class="ng-scope" style="box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; width: 525px; font-size: 11pt; font-family: Arial, sans-serif">
+                                                                                                                                        <tbody style="box-sizing: border-box">
+                                                                                                                                            <tr style="box-sizing: border-box">
+                                                                                                                                                <td width="125" valign="top" rowspan="6" class="ng-scope" style="box-sizing: border-box; padding: 0px 10px 0px 0px; font-size: 10pt; font-family: Arial, sans-serif; border-right: 1px solid rgb(251, 99, 3); width: 125px; vertical-align: top">
+                                                                                                                                                    <br>
+                                                                                                                                                </td>
+                                                                                                                                                <td style="box-sizing: border-box; padding: 0px 0px 0px 10px">
+                                                                                                                                                    <table cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; background-color: transparent">
+                                                                                                                                                        <tbody style="box-sizing: border-box">
+                                                                                                                                                            <tr style="box-sizing: border-box">
+                                                                                                                                                                <td valign="top" style="box-sizing: border-box; padding: 0px 0px 5px 10px; font-size: 10pt; color: rgb(0, 121, 172); font-family: Arial, sans-serif; width: 400px; vertical-align: top">
+                                                                                                                                                                    THANKS &amp; REGARDS
+                                                                                                                                                                    <br>
+                                                                                                                                                                </td>
+                                                                                                                                                            </tr>
+                                                                                                                                                            <tr style="box-sizing: border-box">
+                                                                                                                                                                <td valign="top" style="box-sizing: border-box; padding: 5px 0px 5px 10px; font-size: 10pt; color: rgb(68, 68, 68); font-family: Arial, sans-serif; vertical-align: top; line-height: 17px">
+                                                                                                                                                                    <span class="ng-scope" style="box-sizing: border-box">
+                                                                                                                                                                        <span style="color: rgb(251, 99, 3); box-sizing: border-box;" class="colour">
+                                                                                                                                                                            <b>
+                                                                                                                                                                                a:
+                                                                                                                                                                                <span>
+                                                                                                                                                                                    &nbsp;
+                                                                                                                                                                                </span>
+                                                                                                                                                                            </b>
+                                                                                                                                                                        </span>
+                                                                                                                                                                        <span style="color:rgb(0, 0, 0)" class="colour">
+                                                                                                                                                                            <span style="font-family:Arial, sans-serif" class="font">
+                                                                                                                                                                                <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                                                                                                                                    Teckat Services Private Limited
+                                                                                                                                                                                </span>
+                                                                                                                                                                            </span>
+                                                                                                                                                                        </span>
+                                                                                                                                                                        <span>
+                                                                                                                                                                            &nbsp;
+                                                                                                                                                                        </span>
+                                                                                                                                                                        <span style="color:rgb(0, 0, 0)" class="colour">
+                                                                                                                                                                            <span style="font-family:Arial, sans-serif" class="font">
+                                                                                                                                                                                <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                                                                                                                                    <span class="ng-scope" style="box-sizing: border-box">
+                                                                                                                                                                                        |
+                                                                                                                                                                                        <span>
+                                                                                                                                                                                            &nbsp;
+                                                                                                                                                                                        </span>
+                                                                                                                                                                                    </span>
+                                                                                                                                                                                    14, Sidhgora Main Market, Sidhgora, Jamshedpur, Jharkhand
+                                                                                                                                                                                </span>
+                                                                                                                                                                            </span>
+                                                                                                                                                                        </span>
+                                                                                                                                                                        <span>
+                                                                                                                                                                            &nbsp;
+                                                                                                                                                                        </span>
+                                                                                                                                                                        <span style="color:rgb(0, 0, 0)" class="colour">
+                                                                                                                                                                            <span style="font-family:Arial, sans-serif" class="font">
+                                                                                                                                                                                <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                                                                                                                                    <span class="ng-scope" style="box-sizing: border-box">
+                                                                                                                                                                                        |
+                                                                                                                                                                                        <span>
+                                                                                                                                                                                            &nbsp;
+                                                                                                                                                                                        </span>
+                                                                                                                                                                                    </span>
+                                                                                                                                                                                    831009
+                                                                                                                                                                                </span>
+                                                                                                                                                                            </span>
+                                                                                                                                                                        </span>
+                                                                                                                                                                        <br style="box-sizing: border-box">
+                                                                                                                                                                        <span style="color: rgb(251, 99, 3); box-sizing: border-box;" class="colour">
+                                                                                                                                                                            <b>
+                                                                                                                                                                                e:
+                                                                                                                                                                            </b>
+                                                                                                                                                                        </span>
+                                                                                                                                                                        <span style="color:rgb(0, 0, 0)" class="colour">
+                                                                                                                                                                            <span style="font-family:Arial, sans-serif" class="font">
+                                                                                                                                                                                <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                                                                                                                                    <span>
+                                                                                                                                                                                        &nbsp;
+                                                                                                                                                                                    </span>
+                                                                                                                                                                                    <a href="mailto:support@teckat.com" target="_blank">
+                                                                                                                                                                                        support@teckat.com
+                                                                                                                                                                                    </a>
+                                                                                                                                                                                </span>
+                                                                                                                                                                            </span>
+                                                                                                                                                                        </span>
+                                                                                                                                                                    </span>
+                                                                                                                                                                    <span>
+                                                                                                                                                                        &nbsp;
+                                                                                                                                                                    </span>
+                                                                                                                                                                    <span class="ng-scope" style="box-sizing: border-box">
+                                                                                                                                                                        <span class="ng-scope" style="box-sizing: border-box">
+                                                                                                                                                                            |
+                                                                                                                                                                            <span>
+                                                                                                                                                                                &nbsp;
+                                                                                                                                                                            </span>
+                                                                                                                                                                        </span>
+                                                                                                                                                                        <span style="color: rgb(251, 99, 3); box-sizing: border-box;" class="colour">
+                                                                                                                                                                            <b>
+                                                                                                                                                                                w:
+                                                                                                                                                                            </b>
+                                                                                                                                                                        </span>
+                                                                                                                                                                        <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="http://teckat.com/" target="_blank">
+                                                                                                                                                                            <span style="color:rgb(0, 0, 0)" class="colour">
+                                                                                                                                                                                <span style="font-family:Arial, sans-serif" class="font">
+                                                                                                                                                                                    <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                                                                                                                                        <span>
+                                                                                                                                                                                            &nbsp;
+                                                                                                                                                                                        </span>
+                                                                                                                                                                                        teckat.com
+                                                                                                                                                                                    </span>
+                                                                                                                                                                                </span>
+                                                                                                                                                                            </span>
+                                                                                                                                                                        </a>
+                                                                                                                                                                        <br style="box-sizing: border-box">
+                                                                                                                                                                        <span style="color: rgb(251, 99, 3); box-sizing: border-box;" class="colour">
+                                                                                                                                                                            <b>
+                                                                                                                                                                                m:
+                                                                                                                                                                            </b>
+                                                                                                                                                                        </span>
+                                                                                                                                                                        <span style="color:rgb(0, 0, 0)" class="colour">
+                                                                                                                                                                            <span style="font-family:Arial, sans-serif" class="font">
+                                                                                                                                                                                <span style="font-size: 10pt; box-sizing: border-box;" class="size">
+                                                                                                                                                                                    <span>
+                                                                                                                                                                                        &nbsp;
+                                                                                                                                                                                    </span>
+                                                                                                                                                                                    9337704495
+                                                                                                                                                                                </span>
+                                                                                                                                                                            </span>
+                                                                                                                                                                        </span>
+                                                                                                                                                                    </span>
+                                                                                                                                                                </td>
+                                                                                                                                                            </tr>
+                                                                                                                                                            <tr class="ng-scope" style="box-sizing: border-box">
+                                                                                                                                                                <td valign="bottom" style="box-sizing: border-box; padding: 5px 0px 0px 10px; font-size: 10pt; font-family: Arial, sans-serif; vertical-align: bottom">
+                                                                                                                                                                    <span class="ng-scope" style="box-sizing: border-box">
+                                                                                                                                                                        <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="https://www.facebook.com/in.teckat/" target="_blank">
+                                                                                                                                                                            <img height="19" border="0" width="19" alt="facebook icon" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/fb.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px">
+                                                                                                                                                                        </a>
+                                                                                                                                                                        &nbsp;
+                                                                                                                                                                        <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="https://www.linkedin.com/company/teckat-service-pvt-ltd/?viewAsMember=true" target="_blank">
+                                                                                                                                                                            <img height="19" border="0" width="19" alt="linkedin icon" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/ln.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px">
+                                                                                                                                                                        </a>
+                                                                                                                                                                        &nbsp;
+                                                                                                                                                                        <a style="box-sizing: border-box; background-color: transparent; color: rgb(51, 122, 183); text-decoration: none" href="https://www.instagram.com/india.teckat/" target="_blank">
+                                                                                                                                                                            <img height="19" border="0" width="19" alt="instagram icon" src="https://codetwocdn.azureedge.net/images/mail-signatures/generator-dm/bease-fox/it.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; height: 19px; width: 19px">
+                                                                                                                                                                        </a>
+                                                                                                                                                                        &nbsp;
+                                                                                                                                                                    </span>
+                                                                                                                                                                    <br>
+                                                                                                                                                                </td>
+                                                                                                                                                            </tr>
+                                                                                                                                                        </tbody>
+                                                                                                                                                    </table>
+                                                                                                                                                </td>
+                                                                                                                                            </tr>
+                                                                                                                                        </tbody>
+                                                                                                                                    </table>
+                                                                                                                                    <div>
+                                                                                                                                        <br>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <br>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                        <div>
+                                            <div style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10.0pt;">
+                                                <div>
+                                                    <br>
+                                                </div>
+                                                <div>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div>
+            <br>
+        </div>
+    </div>
+</div>
+<div>
+    <br>
+</div>
+
+
+  </body>
+</html>
+
+                '''.format(separate[0], link[0][0], separate[0], link[0][0], separate[0])
+
         msg.attach(MIMEText(html, 'html'))
 
         # attach attachments if present
@@ -1949,12 +3682,20 @@ def sendEmail():
 
 
 def clearData():
+
+    global name
+    global email
+    global link
+    global path
+    global tsipId
     # clear arrays
+
     name.clear()
     email.clear()
     link.clear()
     path.clear()
-    print(name, email, link, path)
+    tsipId.clear()
+    print(name, email, link, path, tsipId)
     tk.messagebox.showinfo(
         "Teckat", "Data Cleared successfully.")
     # main parent function
@@ -2098,7 +3839,7 @@ mailVar = tk.StringVar(root)
 
 # Dictionary with options
 mailChoice = {'Thank you for submitting application',
-              'application under review'}
+              'application under review', 'Result Declaration', 'Payment referral generate link', 'Bonus Hours'}
 mailVar.set('Thank you for submitting application')  # set the default option
 
 mailMenu = tk.OptionMenu(root, mailVar, *mailChoice)

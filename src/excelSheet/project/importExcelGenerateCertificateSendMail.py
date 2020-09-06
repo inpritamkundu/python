@@ -100,378 +100,52 @@ def generateCertificate(courseName, numDays, date, certiNumValue, priceStatus, c
 
         if(priceStatus == 'UNPAID'):
             # create Image object with the input image
+            if(certifiedAt == 'youtube live'):
 
-            # free session content
-            image = Image.open(
-                r''+path+'\originalCertificate\\freeSession\originalCertificate.jpg')
-
-            # initialise the drawing context with
-            # the image object as background
-
-            draw = ImageDraw.Draw(image)
-
-            # desired size
-
-            # fontCertificateNum = ImageFont.truetype(
-            #     r''+path+'\style\Asul-Regular.ttf', 50)
-
-            # starting position of the certificate number
-
-            # (x, y) = (2500, 100)
-            # nameColor = 'rgb(0, 0, 0)'  # black color
-
-            # # draw the message on the background
-            # w, h = draw.textsize(certificateNum, font=fontCertificateNum)
-
-            # draw.text((x-(w/2), y), certificateNum,
-            #           fill=nameColor, font=fontCertificateNum)
-
-            # starting position of the name
-
-            (x, y) = (1800, 990)
-            nameColor = 'rgb(0,0,0)'  # black color
-
-            # draw the message on the background
-            w, h = draw.textsize(name[i], font=fontName)
-
-            draw.text((x-(w/2), y), name[i], fill=nameColor, font=fontName)
-
-            # starting position of the course name
-
-            (x, y) = (1775, 1370)
-            courseColor = 'rgb(0, 0, 0)'  # black color
-
-            # draw the message on the background
-            w, h = draw.textsize(courseName, font=fontCourse)
-
-            draw.text((x-(w/2), y), courseName,
-                      fill=courseColor, font=fontCourse)
-
-            # # starting position of the No. of Days
-
-            (x, y) = (1595, 1582)
-            courseColor = 'rgb(0, 0, 0)'  # black color
-
-            # draw the message on the background
-            w, h = draw.textsize(courseDays, font=fontDays)
-
-            draw.text((x-(w/2), y), courseDays,
-                      fill=courseColor, font=fontDays)
-
-            # starting position of the date
-
-            (x, y) = (1800, 1850)
-            courseColor = 'rgb(0, 0, 0)'  # black color
-
-            # draw the message on the background
-            w, h = draw.textsize(courseDate, font=fontDate)
-
-            draw.text((x-(w/2), y), courseDate,
-                      fill=courseColor, font=fontDate)
-
-            # save the edited image
-
-            pdfPath = path+'\generatedCertificate\\freeSession\\' + \
-                name[i]+'.jpg'
-
-            image.save(r''+pdfPath)
-
-            #
-            #
-            #
-            # paid session
-        elif(priceStatus == 'PAID'):
-            # print(courseType)
-
-          # workshop paid session
-
-            if(courseType == 'Workshop'):
-
-                image = Image.open(
-                    r''+path+'\originalCertificate\\paidSession\webinar 2.0\workshop\originalCertificate.jpg')
-
-                # initialise the drawing context with
-                # the image object as background
-
-                draw = ImageDraw.Draw(image)
-
-                # desired size
-
-                fontCertificateNum = ImageFont.truetype(
-                    r''+path+'\style\Asul-Regular.ttf', 60)
-
-                # starting position of the certificate number
-
-                (x, y) = (1200, 250)
-                nameColor = 'rgb(0, 0, 0)'  # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(
-                    certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
-
-                draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
-                          fill=nameColor, font=fontCertificateNum)
-
-                # starting position of the name
-
-                (x, y) = (1200, 900)
-                nameColor = 'rgb(0,136,131)'  # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(name[i], font=fontName)
-
-                draw.text((x-(w/2), y), name[i], fill=nameColor, font=fontName)
-
-                # starting position of the course name
-
-                (x, y) = (1200, 1350)
-                courseColor = 'rgb(0,136,131)'   # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(courseName, font=fontCourse)
-
-                draw.text((x-(w/2), y), courseName,
-                          fill=courseColor, font=fontCourse)
-
-                # # starting position of the No. of Days
-
-                (x, y) = (970, 1615)
-                courseColor = 'rgb(0,136,131)'   # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(courseDays, font=fontDays)
-
-                draw.text((x-(w/2), y), courseDays,
-                          fill=courseColor, font=fontDays)
-
-                # starting position of the date
-
-                (x, y) = (1540, 1970)
-                courseColor = 'rgb(0, 0, 0)'  # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(courseDate, font=fontDate)
-
-                draw.text((x-(w/2), y), courseDate,
-                          fill=courseColor, font=fontDate)
-
-                # save the edited image
-
-                pdfPath = path+'\generatedCertificate\paidSession\workshop\\' + \
-                    certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
-
-                image.save(r''+pdfPath)
-
-            # webinar paid session
-            elif(courseType == "Webinar Session"):
-                # print("webinar")
-                image = Image.open(
-                    r''+path+'\originalCertificate\\paidSession\webinar 2.0\webinar\originalCertificate.jpg')
-
-                # initialise the drawing context with
-                # the image object as background
-
-                draw = ImageDraw.Draw(image)
-
-                # desired size
-
-                fontCertificateNum = ImageFont.truetype(
-                    r''+path+'\style\Asul-Regular.ttf', 60)
-
-                # starting position of the certificate number
-
-                (x, y) = (1200, 250)
-                nameColor = 'rgb(0, 0, 0)'  # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(
-                    certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
-
-                draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
-                          fill=nameColor, font=fontCertificateNum)
-
-                # starting position of the name
-
-                (x, y) = (1758, 1050)
-                nameColor = 'rgb(235,32,39)'  # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(name[i], font=fontName)
-
-                draw.text((x-(w/2), y), name[i], fill=nameColor, font=fontName)
-
-                # starting position of the course name
-
-                (x, y) = (1748, 1450)
-                courseColor = 'rgb(235,32,39)'   # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(courseName, font=fontCourse)
-
-                draw.text((x-(w/2), y), courseName,
-                          fill=courseColor, font=fontCourse)
-
-                # # starting position of the No. of Days
-
-                (x, y) = (1458, 1690)
-                courseColor = 'rgb(235,32,39)'   # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(courseDays, font=fontDays)
-
-                draw.text((x-(w/2), y), courseDays,
-                          fill=courseColor, font=fontDays)
-
-                # starting position of the date
-
-                (x, y) = (2240, 2050)
-                courseColor = 'rgb(0, 0, 0)'  # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(courseDate, font=fontDate)
-
-                draw.text((x-(w/2), y), courseDate,
-                          fill=courseColor, font=fontDate)
-
-                # save the edited image
-
-                pdfPath = path+'\generatedCertificate\paidSession\webinar\\' + \
-                    certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
-
-                image.save(r''+pdfPath)
-
-            # internship paid session
-            elif(courseType == 'Internship'):
-                # print('internship')
-
-                image = Image.open(
-                    r''+path+'\originalCertificate\\paidSession\webinar 2.0\internshipCourse\originalCertificate.jpg')
-
-                # initialise the drawing context with
-                # the image object as background
-
-                draw = ImageDraw.Draw(image)
-
-                # desired size
-
-                fontCertificateNum = ImageFont.truetype(
-                    r''+path+'\style\Baloo2-Medium.ttf', 50)
-                fontDate = ImageFont.truetype(
-                    r''+path+'\style\Baloo2-Medium.ttf', 50)
-                fontDays = ImageFont.truetype(
-                    r''+path+'\style\Baloo2-Medium.ttf', 50)
-                fontName = ImageFont.truetype(
-                    r''+path+'\style\Lucida_Calligraphy_Italic.ttf', 160)
-                fontCourse = ImageFont.truetype(
-                    r''+path+'\style\Lucida_Calligraphy_Italic.ttf', 90)
-
-                certificateNum = certiNum
-                # starting position of the certificate number
-
-                (x, y) = (2100, 150)
-                nameColor = 'rgb(66, 66, 66)'  # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(
-                    certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
-
-                draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
-                          fill=nameColor, font=fontCertificateNum)
-
-                # starting position of the name
-
-                (x, y) = (1250, 1680)
-                nameColor = 'rgb(3, 141, 131)'  # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(name[i], font=fontName)
-
-                draw.text((x-(w/2), y), name[i], fill=nameColor, font=fontName)
-
-                # starting position of the course name
-
-                (x, y) = (1250, 2070)
-                courseColor = 'rgb(3, 141, 131)'   # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(courseName, font=fontCourse)
-
-                draw.text((x-(w/2), y), courseName,
-                          fill=courseColor, font=fontCourse)
-
-                # # # starting position of the No. of Days
-
-                # (x, y) = (1458, 2290)
-                # courseColor = 'rgb(44, 44, 44)'   # black color
-
-                # # draw the message on the background
-                # w, h = draw.textsize(courseDays, font=fontDays)
-
-                # draw.text((x-(w/2), y), courseDays,
-                #           fill=courseColor, font=fontDays)
-
-                # starting position of the date
-
-                (x, y) = (250, 150)
-                courseColor = 'rgb(66, 66, 66)'  # black color
-
-                # draw the message on the background
-                w, h = draw.textsize(courseDate, font=fontDate)
-
-                draw.text((x-(w/2), y), courseDate,
-                          fill=courseColor, font=fontDate)
-
-                # save the edited image
-
-                pdfPath = path+'\generatedCertificate\paidSession\internshipCourse\\' + \
-                    certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
-
-                image.save(r''+pdfPath)
-
-            elif(courseType == 'T-SIP'):
-                # print('T-SIP')
-                image = Image.open(
-                    r''+path+'\originalCertificate\\paidSession\webinar 2.0\\tsip\originalCertificate.jpg')
-
-                # initialise the drawing context with
-                # the image object as background
-
-                draw = ImageDraw.Draw(image)
-
-                # desired size
-
-                fontCertificateNum = ImageFont.truetype(
-                    r''+path+'\style\Acre-Medium.otf', 50)
+                # Font style and size
                 fontName = ImageFont.truetype(
                     r''+path+'\style\Losttimoh.ttf', 220)
 
-                certificateNum = certiNum
+                # free session content
+                image = Image.open(
+                    r''+path+'\originalCertificate\\freeSession\youtube\originalCertificate.jpg')
+
+                # initialise the drawing context with
+                # the image object as background
+
+                draw = ImageDraw.Draw(image)
+
+                # desired size
+
+                # fontCertificateNum = ImageFont.truetype(
+                #     r''+path+'\style\Asul-Regular.ttf', 50)
+
                 # starting position of the certificate number
 
-                (x, y) = (1500, 1035)
-                nameColor = 'rgb(35, 31, 32)'  # black color
+                # (x, y) = (2500, 100)
+                # nameColor = 'rgb(0, 0, 0)'  # black color
 
-                # draw the message on the background
-                w, h = draw.textsize(
-                    certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
+                # # draw the message on the background
+                # w, h = draw.textsize(certificateNum, font=fontCertificateNum)
 
-                draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
-                          fill=nameColor, font=fontCertificateNum)
+                # draw.text((x-(w/2), y), certificateNum,
+                #           fill=nameColor, font=fontCertificateNum)
 
                 # starting position of the name
 
-                (x, y) = (1280, 1400)
-                nameColor = 'rgb(6,80,142)'  # black color
+                (x, y) = (1800, 950)
+                nameColor = 'rgb(0,0,0)'  # black color
 
                 # draw the message on the background
                 w, h = draw.textsize(name[i], font=fontName)
 
-                draw.text((x-(w/2), y), name[i], fill=nameColor, font=fontName)
+                draw.text((x-(w/2), y), name[i],
+                          fill=nameColor, font=fontName)
 
                 # starting position of the course name
 
-                # (x, y) = (1748, 1450)
-                # courseColor = 'rgb(235,32,39)'   # black color
+                # (x, y) = (1775, 1370)
+                # courseColor = 'rgb(0, 0, 0)'  # black color
 
                 # # draw the message on the background
                 # w, h = draw.textsize(courseName, font=fontCourse)
@@ -481,8 +155,8 @@ def generateCertificate(courseName, numDays, date, certiNumValue, priceStatus, c
 
                 # # # starting position of the No. of Days
 
-                # (x, y) = (1458, 1690)
-                # courseColor = 'rgb(235,32,39)'   # black color
+                # (x, y) = (1595, 1582)
+                # courseColor = 'rgb(0, 0, 0)'  # black color
 
                 # # draw the message on the background
                 # w, h = draw.textsize(courseDays, font=fontDays)
@@ -492,7 +166,7 @@ def generateCertificate(courseName, numDays, date, certiNumValue, priceStatus, c
 
                 # # starting position of the date
 
-                # (x, y) = (2240, 2050)
+                # (x, y) = (1800, 1850)
                 # courseColor = 'rgb(0, 0, 0)'  # black color
 
                 # # draw the message on the background
@@ -503,10 +177,763 @@ def generateCertificate(courseName, numDays, date, certiNumValue, priceStatus, c
 
                 # save the edited image
 
-                pdfPath = path+'\generatedCertificate\paidSession\\tsip\\' + \
-                    certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
+                pdfPath = path+'\generatedCertificate\\freeSession\\' + \
+                    name[i]+'.jpg'
 
                 image.save(r''+pdfPath)
+            else:
+                # free session content
+                image = Image.open(
+                    r''+path+'\originalCertificate\\freeSession\originalCertificate.jpg')
+
+                # initialise the drawing context with
+                # the image object as background
+
+                draw = ImageDraw.Draw(image)
+
+                # desired size
+
+                # fontCertificateNum = ImageFont.truetype(
+                #     r''+path+'\style\Asul-Regular.ttf', 50)
+
+                # starting position of the certificate number
+
+                # (x, y) = (2500, 100)
+                # nameColor = 'rgb(0, 0, 0)'  # black color
+
+                # # draw the message on the background
+                # w, h = draw.textsize(certificateNum, font=fontCertificateNum)
+
+                # draw.text((x-(w/2), y), certificateNum,
+                #           fill=nameColor, font=fontCertificateNum)
+
+                # starting position of the name
+
+                (x, y) = (1800, 990)
+                nameColor = 'rgb(0,0,0)'  # black color
+
+                # draw the message on the background
+                w, h = draw.textsize(name[i], font=fontName)
+
+                draw.text((x-(w/2), y), name[i], fill=nameColor, font=fontName)
+
+                # starting position of the course name
+
+                (x, y) = (1775, 1370)
+                courseColor = 'rgb(0, 0, 0)'  # black color
+
+                # draw the message on the background
+                w, h = draw.textsize(courseName, font=fontCourse)
+
+                draw.text((x-(w/2), y), courseName,
+                          fill=courseColor, font=fontCourse)
+
+                # # starting position of the No. of Days
+
+                (x, y) = (1595, 1582)
+                courseColor = 'rgb(0, 0, 0)'  # black color
+
+                # draw the message on the background
+                w, h = draw.textsize(courseDays, font=fontDays)
+
+                draw.text((x-(w/2), y), courseDays,
+                          fill=courseColor, font=fontDays)
+
+                # starting position of the date
+
+                (x, y) = (1800, 1850)
+                courseColor = 'rgb(0, 0, 0)'  # black color
+
+                # draw the message on the background
+                w, h = draw.textsize(courseDate, font=fontDate)
+
+                draw.text((x-(w/2), y), courseDate,
+                          fill=courseColor, font=fontDate)
+
+                # save the edited image
+
+                pdfPath = path+'\generatedCertificate\\freeSession\\' + \
+                    name[i]+'.jpg'
+
+                image.save(r''+pdfPath)
+
+                #
+                #
+                #
+                # paid session
+        elif(priceStatus == 'PAID'):
+            # print(courseType)
+            if(certifiedAt == 'webinar series 2.0'):
+                # workshop paid session
+
+                if(courseType == 'Workshop'):
+
+                    image = Image.open(
+                        r''+path+'\originalCertificate\\paidSession\webinar 2.0\workshop\originalCertificate.jpg')
+
+                    # initialise the drawing context with
+                    # the image object as background
+
+                    draw = ImageDraw.Draw(image)
+
+                    # desired size
+
+                    fontCertificateNum = ImageFont.truetype(
+                        r''+path+'\style\Asul-Regular.ttf', 60)
+
+                    # starting position of the certificate number
+
+                    (x, y) = (1200, 250)
+                    nameColor = 'rgb(0, 0, 0)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(
+                        certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
+
+                    draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
+                              fill=nameColor, font=fontCertificateNum)
+
+                    # starting position of the name
+
+                    (x, y) = (1200, 900)
+                    nameColor = 'rgb(0,136,131)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(name[i], font=fontName)
+
+                    draw.text((x-(w/2), y), name[i],
+                              fill=nameColor, font=fontName)
+
+                    # starting position of the course name
+
+                    (x, y) = (1200, 1350)
+                    courseColor = 'rgb(0,136,131)'   # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseName, font=fontCourse)
+
+                    draw.text((x-(w/2), y), courseName,
+                              fill=courseColor, font=fontCourse)
+
+                    # # starting position of the No. of Days
+
+                    (x, y) = (970, 1615)
+                    courseColor = 'rgb(0,136,131)'   # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseDays, font=fontDays)
+
+                    draw.text((x-(w/2), y), courseDays,
+                              fill=courseColor, font=fontDays)
+
+                    # starting position of the date
+
+                    (x, y) = (1540, 1970)
+                    courseColor = 'rgb(0, 0, 0)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseDate, font=fontDate)
+
+                    draw.text((x-(w/2), y), courseDate,
+                              fill=courseColor, font=fontDate)
+
+                    # save the edited image
+
+                    pdfPath = path+'\generatedCertificate\paidSession\workshop\\' + \
+                        certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
+
+                    image.save(r''+pdfPath)
+
+                # webinar paid session
+                elif(courseType == "Webinar Session"):
+                    # print("webinar")
+                    image = Image.open(
+                        r''+path+'\originalCertificate\\paidSession\webinar 2.0\webinar\originalCertificate.jpg')
+
+                    # initialise the drawing context with
+                    # the image object as background
+
+                    draw = ImageDraw.Draw(image)
+
+                    # desired size
+
+                    fontCertificateNum = ImageFont.truetype(
+                        r''+path+'\style\Asul-Regular.ttf', 60)
+
+                    # starting position of the certificate number
+
+                    (x, y) = (1200, 250)
+                    nameColor = 'rgb(0, 0, 0)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(
+                        certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
+
+                    draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
+                              fill=nameColor, font=fontCertificateNum)
+
+                    # starting position of the name
+
+                    (x, y) = (1758, 1050)
+                    nameColor = 'rgb(235,32,39)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(name[i], font=fontName)
+
+                    draw.text((x-(w/2), y), name[i],
+                              fill=nameColor, font=fontName)
+
+                    # starting position of the course name
+
+                    (x, y) = (1748, 1450)
+                    courseColor = 'rgb(235,32,39)'   # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseName, font=fontCourse)
+
+                    draw.text((x-(w/2), y), courseName,
+                              fill=courseColor, font=fontCourse)
+
+                    # # starting position of the No. of Days
+
+                    (x, y) = (1458, 1690)
+                    courseColor = 'rgb(235,32,39)'   # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseDays, font=fontDays)
+
+                    draw.text((x-(w/2), y), courseDays,
+                              fill=courseColor, font=fontDays)
+
+                    # starting position of the date
+
+                    (x, y) = (2240, 2050)
+                    courseColor = 'rgb(0, 0, 0)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseDate, font=fontDate)
+
+                    draw.text((x-(w/2), y), courseDate,
+                              fill=courseColor, font=fontDate)
+
+                    # save the edited image
+
+                    pdfPath = path+'\generatedCertificate\paidSession\webinar\\' + \
+                        certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
+
+                    image.save(r''+pdfPath)
+
+                # internship paid session
+                elif(courseType == 'Internship'):
+                    # print('internship')
+
+                    image = Image.open(
+                        r''+path+'\originalCertificate\\paidSession\webinar 2.0\internshipCourse\originalCertificate.jpg')
+
+                    # initialise the drawing context with
+                    # the image object as background
+
+                    draw = ImageDraw.Draw(image)
+
+                    # desired size
+
+                    fontCertificateNum = ImageFont.truetype(
+                        r''+path+'\style\Baloo2-Medium.ttf', 50)
+                    fontDate = ImageFont.truetype(
+                        r''+path+'\style\Baloo2-Medium.ttf', 50)
+                    fontDays = ImageFont.truetype(
+                        r''+path+'\style\Baloo2-Medium.ttf', 50)
+                    fontName = ImageFont.truetype(
+                        r''+path+'\style\Lucida_Calligraphy_Italic.ttf', 160)
+                    fontCourse = ImageFont.truetype(
+                        r''+path+'\style\Lucida_Calligraphy_Italic.ttf', 90)
+
+                    certificateNum = certiNum
+                    # starting position of the certificate number
+
+                    (x, y) = (2100, 150)
+                    nameColor = 'rgb(66, 66, 66)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(
+                        certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
+
+                    draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
+                              fill=nameColor, font=fontCertificateNum)
+
+                    # starting position of the name
+
+                    (x, y) = (1250, 1680)
+                    nameColor = 'rgb(3, 141, 131)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(name[i], font=fontName)
+
+                    draw.text((x-(w/2), y), name[i],
+                              fill=nameColor, font=fontName)
+
+                    # starting position of the course name
+
+                    (x, y) = (1250, 2070)
+                    courseColor = 'rgb(3, 141, 131)'   # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseName, font=fontCourse)
+
+                    draw.text((x-(w/2), y), courseName,
+                              fill=courseColor, font=fontCourse)
+
+                    # # # starting position of the No. of Days
+
+                    # (x, y) = (1458, 2290)
+                    # courseColor = 'rgb(44, 44, 44)'   # black color
+
+                    # # draw the message on the background
+                    # w, h = draw.textsize(courseDays, font=fontDays)
+
+                    # draw.text((x-(w/2), y), courseDays,
+                    #           fill=courseColor, font=fontDays)
+
+                    # starting position of the date
+
+                    (x, y) = (250, 150)
+                    courseColor = 'rgb(66, 66, 66)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseDate, font=fontDate)
+
+                    draw.text((x-(w/2), y), courseDate,
+                              fill=courseColor, font=fontDate)
+
+                    # save the edited image
+
+                    pdfPath = path+'\generatedCertificate\paidSession\internshipCourse\\' + \
+                        certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
+
+                    image.save(r''+pdfPath)
+
+                elif(courseType == 'T-SIP'):
+                    # print('T-SIP')
+                    image = Image.open(
+                        r''+path+'\originalCertificate\\paidSession\webinar 2.0\\tsip\originalCertificate.jpg')
+
+                    # initialise the drawing context with
+                    # the image object as background
+
+                    draw = ImageDraw.Draw(image)
+
+                    # desired size
+
+                    fontCertificateNum = ImageFont.truetype(
+                        r''+path+'\style\Acre-Medium.otf', 50)
+                    fontName = ImageFont.truetype(
+                        r''+path+'\style\Losttimoh.ttf', 220)
+
+                    certificateNum = certiNum
+                    # starting position of the certificate number
+
+                    (x, y) = (1500, 1035)
+                    nameColor = 'rgb(35, 31, 32)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(
+                        certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
+
+                    draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
+                              fill=nameColor, font=fontCertificateNum)
+
+                    # starting position of the name
+
+                    (x, y) = (1280, 1400)
+                    nameColor = 'rgb(6,80,142)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(name[i], font=fontName)
+
+                    draw.text((x-(w/2), y), name[i],
+                              fill=nameColor, font=fontName)
+
+                    # starting position of the course name
+
+                    # (x, y) = (1748, 1450)
+                    # courseColor = 'rgb(235,32,39)'   # black color
+
+                    # # draw the message on the background
+                    # w, h = draw.textsize(courseName, font=fontCourse)
+
+                    # draw.text((x-(w/2), y), courseName,
+                    #           fill=courseColor, font=fontCourse)
+
+                    # # # starting position of the No. of Days
+
+                    # (x, y) = (1458, 1690)
+                    # courseColor = 'rgb(235,32,39)'   # black color
+
+                    # # draw the message on the background
+                    # w, h = draw.textsize(courseDays, font=fontDays)
+
+                    # draw.text((x-(w/2), y), courseDays,
+                    #           fill=courseColor, font=fontDays)
+
+                    # # starting position of the date
+
+                    # (x, y) = (2240, 2050)
+                    # courseColor = 'rgb(0, 0, 0)'  # black color
+
+                    # # draw the message on the background
+                    # w, h = draw.textsize(courseDate, font=fontDate)
+
+                    # draw.text((x-(w/2), y), courseDate,
+                    #           fill=courseColor, font=fontDate)
+
+                    # save the edited image
+
+                    pdfPath = path+'\generatedCertificate\paidSession\\tsip\\' + \
+                        certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
+
+                    image.save(r''+pdfPath)
+
+            if(certifiedAt == 'webinar series 3.0'):
+                # workshop paid session
+
+                if(courseType == 'Workshop'):
+
+                    image = Image.open(
+                        r''+path+'\originalCertificate\\paidSession\webinar 3.0\workshop\originalCertificate.jpg')
+
+                    # initialise the drawing context with
+                    # the image object as background
+
+                    draw = ImageDraw.Draw(image)
+
+                    # desired size
+
+                    fontCertificateNum = ImageFont.truetype(
+                        r''+path+'\style\Asul-Regular.ttf', 45)
+
+                    fontCourse = ImageFont.truetype(
+                        r''+path+'\style\\Baloo2-Medium.ttf', 100)
+
+                    fontDays = ImageFont.truetype(
+                        r''+path+'\style\\Baloo2-Medium.ttf', 80)
+
+                    # starting position of the certificate number
+
+                    (x, y) = (2900, 320)
+                    nameColor = 'rgb(0, 0, 0)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(
+                        certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
+
+                    draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
+                              fill=nameColor, font=fontCertificateNum)
+
+                    # starting position of the name
+
+                    (x, y) = (1800, 950)
+                    nameColor = 'rgb(41,182,119)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(name[i], font=fontName)
+
+                    draw.text((x-(w/2), y), name[i],
+                              fill=nameColor, font=fontName)
+
+                    # starting position of the course name
+
+                    (x, y) = (1800, 1335)
+                    courseColor = 'rgb(41,182,119)'   # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseName, font=fontCourse)
+
+                    draw.text((x-(w/2), y), courseName,
+                              fill=courseColor, font=fontCourse)
+
+                    # # starting position of the No. of Days
+
+                    (x, y) = (1780, 1600)
+                    courseColor = 'rgb(41,182,119)'   # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseDays, font=fontDays)
+
+                    draw.text((x-(w/2), y), courseDays,
+                              fill=courseColor, font=fontDays)
+
+                    # starting position of the date
+
+                    (x, y) = (1800, 1970)
+                    courseColor = 'rgb(0, 0, 0)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseDate, font=fontDate)
+
+                    draw.text((x-(w/2), y), courseDate,
+                              fill=courseColor, font=fontDate)
+
+                    # save the edited image
+
+                    pdfPath = path+'\generatedCertificate\paidSession\workshop\\' + \
+                        certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
+
+                    image.save(r''+pdfPath)
+
+                # webinar paid session
+                elif(courseType == "Webinar Session"):
+                    # print("webinar")
+                    image = Image.open(
+                        r''+path+'\originalCertificate\\paidSession\webinar 3.0\webinar\originalCertificate.jpg')
+
+                    # initialise the drawing context with
+                    # the image object as background
+
+                    draw = ImageDraw.Draw(image)
+
+                    # desired size
+
+                    fontCertificateNum = ImageFont.truetype(
+                        r''+path+'\style\Asul-Regular.ttf', 45)
+
+                    fontCourse = ImageFont.truetype(
+                        r''+path+'\style\\Baloo2-Medium.ttf', 100)
+
+                    fontDays = ImageFont.truetype(
+                        r''+path+'\style\\Baloo2-Medium.ttf', 80)
+
+                    # starting position of the certificate number
+
+                    (x, y) = (2900, 320)
+                    nameColor = 'rgb(0, 0, 0)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(
+                        certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
+
+                    draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
+                              fill=nameColor, font=fontCertificateNum)
+
+                    # starting position of the name
+
+                    (x, y) = (1800, 950)
+                    nameColor = 'rgb(41,182,119)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(name[i], font=fontName)
+
+                    draw.text((x-(w/2), y), name[i],
+                              fill=nameColor, font=fontName)
+
+                    # starting position of the course name
+
+                    (x, y) = (1800, 1335)
+                    courseColor = 'rgb(41,182,119)'   # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseName, font=fontCourse)
+
+                    draw.text((x-(w/2), y), courseName,
+                              fill=courseColor, font=fontCourse)
+
+                    # # starting position of the No. of Days
+
+                    (x, y) = (1860, 1600)
+                    courseColor = 'rgb(41,182,119)'   # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseDays, font=fontDays)
+
+                    draw.text((x-(w/2), y), courseDays,
+                              fill=courseColor, font=fontDays)
+
+                    # starting position of the date
+
+                    (x, y) = (1800, 1970)
+                    courseColor = 'rgb(0, 0, 0)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseDate, font=fontDate)
+
+                    draw.text((x-(w/2), y), courseDate,
+                              fill=courseColor, font=fontDate)
+
+                    # save the edited image
+
+                    pdfPath = path+'\generatedCertificate\paidSession\webinar\\' + \
+                        certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
+
+                    image.save(r''+pdfPath)
+
+                # internship paid session
+                elif(courseType == 'Internship'):
+                    # print('internship')
+
+                    image = Image.open(
+                        r''+path+'\originalCertificate\\paidSession\webinar 2.0\internshipCourse\originalCertificate.jpg')
+
+                    # initialise the drawing context with
+                    # the image object as background
+
+                    draw = ImageDraw.Draw(image)
+
+                    # desired size
+
+                    fontCertificateNum = ImageFont.truetype(
+                        r''+path+'\style\Baloo2-Medium.ttf', 50)
+                    fontDate = ImageFont.truetype(
+                        r''+path+'\style\Baloo2-Medium.ttf', 50)
+                    fontDays = ImageFont.truetype(
+                        r''+path+'\style\Baloo2-Medium.ttf', 50)
+                    fontName = ImageFont.truetype(
+                        r''+path+'\style\Lucida_Calligraphy_Italic.ttf', 160)
+                    fontCourse = ImageFont.truetype(
+                        r''+path+'\style\Lucida_Calligraphy_Italic.ttf', 90)
+
+                    certificateNum = certiNum
+                    # starting position of the certificate number
+
+                    (x, y) = (2100, 150)
+                    nameColor = 'rgb(66, 66, 66)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(
+                        certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
+
+                    draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
+                              fill=nameColor, font=fontCertificateNum)
+
+                    # starting position of the name
+
+                    (x, y) = (1250, 1680)
+                    nameColor = 'rgb(3, 141, 131)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(name[i], font=fontName)
+
+                    draw.text((x-(w/2), y), name[i],
+                              fill=nameColor, font=fontName)
+
+                    # starting position of the course name
+
+                    (x, y) = (1250, 2070)
+                    courseColor = 'rgb(3, 141, 131)'   # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseName, font=fontCourse)
+
+                    draw.text((x-(w/2), y), courseName,
+                              fill=courseColor, font=fontCourse)
+
+                    # # # starting position of the No. of Days
+
+                    # (x, y) = (1458, 2290)
+                    # courseColor = 'rgb(44, 44, 44)'   # black color
+
+                    # # draw the message on the background
+                    # w, h = draw.textsize(courseDays, font=fontDays)
+
+                    # draw.text((x-(w/2), y), courseDays,
+                    #           fill=courseColor, font=fontDays)
+
+                    # starting position of the date
+
+                    (x, y) = (250, 150)
+                    courseColor = 'rgb(66, 66, 66)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(courseDate, font=fontDate)
+
+                    draw.text((x-(w/2), y), courseDate,
+                              fill=courseColor, font=fontDate)
+
+                    # save the edited image
+
+                    pdfPath = path+'\generatedCertificate\paidSession\internshipCourse\\' + \
+                        certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
+
+                    image.save(r''+pdfPath)
+
+                elif(courseType == 'T-SIP'):
+                    # print('T-SIP')
+                    image = Image.open(
+                        r''+path+'\originalCertificate\\paidSession\webinar 3.0\\tsip\originalCertificate.jpg')
+
+                    # initialise the drawing context with
+                    # the image object as background
+
+                    draw = ImageDraw.Draw(image)
+
+                    # desired size
+
+                    fontCertificateNum = ImageFont.truetype(
+                        r''+path+'\style\Acre-Medium.otf', 50)
+                    fontName = ImageFont.truetype(
+                        r''+path+'\style\Losttimoh.ttf', 220)
+
+                    certificateNum = certiNum
+                    # starting position of the certificate number
+
+                    (x, y) = (1500, 1035)
+                    nameColor = 'rgb(35, 31, 32)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(
+                        certificateNum+str(int(certiNumValue)+i), font=fontCertificateNum)
+
+                    draw.text((x-(w/2), y), certificateNum+str(int(certiNumValue)+i),
+                              fill=nameColor, font=fontCertificateNum)
+
+                    # starting position of the name
+
+                    (x, y) = (1280, 1400)
+                    nameColor = 'rgb(6,80,142)'  # black color
+
+                    # draw the message on the background
+                    w, h = draw.textsize(name[i], font=fontName)
+
+                    draw.text((x-(w/2), y), name[i],
+                              fill=nameColor, font=fontName)
+
+                    # starting position of the course name
+
+                    # (x, y) = (1748, 1450)
+                    # courseColor = 'rgb(235,32,39)'   # black color
+
+                    # # draw the message on the background
+                    # w, h = draw.textsize(courseName, font=fontCourse)
+
+                    # draw.text((x-(w/2), y), courseName,
+                    #           fill=courseColor, font=fontCourse)
+
+                    # # # starting position of the No. of Days
+
+                    # (x, y) = (1458, 1690)
+                    # courseColor = 'rgb(235,32,39)'   # black color
+
+                    # # draw the message on the background
+                    # w, h = draw.textsize(courseDays, font=fontDays)
+
+                    # draw.text((x-(w/2), y), courseDays,
+                    #           fill=courseColor, font=fontDays)
+
+                    # # starting position of the date
+
+                    # (x, y) = (2240, 2050)
+                    # courseColor = 'rgb(0, 0, 0)'  # black color
+
+                    # # draw the message on the background
+                    # w, h = draw.textsize(courseDate, font=fontDate)
+
+                    # draw.text((x-(w/2), y), courseDate,
+                    #           fill=courseColor, font=fontDate)
+
+                    # save the edited image
+
+                    pdfPath = path+'\generatedCertificate\paidSession\\tsip\\' + \
+                        certiNum+str(int(certiNumValue)+i)+" "+name[i]+'.jpg'
+
+                    image.save(r''+pdfPath)
 
     tk.messagebox.showinfo(
         "Teckat", "Certificates generated successfully. do not close the window without pressing send email or else the data will be lost.")
@@ -579,7 +1006,7 @@ https://g.page/teckat/review?gm
 
 Contact us at:
 
-Instagram- https://www.instagram.com/india.teckat/
+Instagram- https://www.instagram.com/in.teckat/
 
 Facebook- https://www.facebook.com/in.teckat/
 
@@ -594,12 +1021,12 @@ https://teckat.com
 
         '''.format(name[i], courseType, certificationType)
         elif(courseType == 'T-SIP'):
-            msg['Subject'] = "Mail regarding certificate felicitation for successful completion of T-SIP 1.O"
+            msg['Subject'] = "Mail regarding certificate felicitation for successful completion of T-SIP 2.O"
             body = '''
 Dear {},
 
 We heartily congratulate you on this wonderful achievement fir the completion of Internship program with Teckat.
-It was a successful journey of T-SIP 1.O with you.
+It was a successful journey of T-SIP 2.O with you.
 
 We therefore certify you for the same.
 
@@ -804,7 +1231,8 @@ courseMenu.grid(row=2, column=3, padx=10, pady=10)
 certifiedAtVar = tk.StringVar(root)
 
 # Dictionary with options
-certifiedAtChoices = {'webinar series 1.0', 'webinar series 2.0', 'T-SIP 1.0'}
+certifiedAtChoices = {'webinar series 1.0',
+                      'webinar series 2.0', 'webinar series 3.0', 'T-SIP 1.0', 'youtube live'}
 certifiedAtVar.set('webinar series 2.0')  # set the default option
 
 certifiedAtMenu = tk.OptionMenu(root, certifiedAtVar, *certifiedAtChoices)
